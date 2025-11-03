@@ -28,48 +28,49 @@
 <body>
   <!-- HEADER / NAVBAR -->
   <header class="site-header" aria-label="Hlavní navigace">
-    <div class="container nav-wrap">
-      <a class="brand" href="#" aria-label="Plynservis Liberec – domů">
-        Plynservis Liberec Vladimír Řehák
-      </a>
+  <div class="container nav-wrap">
+    <!-- Značka -->
+    <a class="brand" href="/" aria-label="Plynservis Liberec Vladimír Řehák">
+      <span class="brand-long">
+        <span class="brand-first">Plynservis Liberec</span>
+        <span class="brand-last">Vladimír Řehák</span>
+      </span>
+      <span class="brand-short" aria-hidden="true">Plynservis Řehák</span>
+    </a>
 
-      <!-- Hamburger (mobile) -->
-      <button
-        class="nav-toggle"
-        type="button"
-        aria-label="Přepnout navigaci"
-        aria-controls="primary-navigation"
-        aria-expanded="false">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
 
-      <!-- Navigace -->
-      <nav class="nav" id="primary-navigation">
-        <ul class="nav-list">
-          <li class="nav-item">
-            <a href="#sluzby">Nabídka služeb</a>
-          </li>
-          <li class="nav-item">
-            <a href="#informace">Informace</a>
-          </li>
-          <li class="nav-item">
-            <a href="#formular">Kontaktní formulář</a>
-          </li>
-          <li class="nav-item">
-            <a href="#mapa">Kde působím</a>
-          </li>
-          <li class="nav-item nav-phone">
-            <a href="tel:+420603212893">
-                <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                Zavolejte&nbsp;mi
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <!-- Navigace (kolapsuje do dropdownu) -->
+    <nav class="nav" id="primary-navigation" aria-label="Primární">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#sluzby">Nabídka služeb</a></li>
+        <li class="nav-item"><a href="#informace">Informace</a></li>
+        <li class="nav-item"><a href="#formular">Kontaktní formulář</a></li>
+        <li class="nav-item"><a href="#mapa">Kde působím</a></li>
+      </ul>
+    </nav>
+
+    <!-- Telefon – vždy viditelný, mimo nav -->
+    <a class="nav-phone" href="tel:+420603212893">
+      <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      <span class="nav-phone-text">Zavolejte&nbsp;mi</span>
+    </a>
+
+
+    <!-- Hamburger (mobile) -->
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Přepnout navigaci"
+      aria-controls="primary-navigation"
+      aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="sr-only">Menu</span>
+    </button>
+  </div>
+</header>
+
 
   <main id="obsah">
     <!-- HERO -->
@@ -350,17 +351,16 @@
 
   <!-- JS: hamburger + smooth scroll (bez animací) -->
   <script>
-    // Hamburger toggle
-    const toggle = document.querySelector('.nav-toggle');
-    const nav = document.getElementById('primary-navigation');
-
-    if (toggle && nav) {
-      toggle.addEventListener('click', () => {
-        const expanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!expanded));
-        nav.classList.toggle('is-open', !expanded);
-      });
-    }
+  const btn = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.nav');
+  btn.addEventListener('click', () => {
+    nav.classList.toggle('is-open');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+  });
+  document.querySelectorAll('.nav a').forEach(a =>
+    a.addEventListener('click', () => nav.classList.remove('is-open'))
+  );
 
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach((a) => {
