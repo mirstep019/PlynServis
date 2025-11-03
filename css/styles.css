@@ -234,6 +234,12 @@ ul {
   font-weight: 600;
 }
 
+@media(max-width:500px){
+  .pill{
+    font-size: clamp(0.75rem, 3.5vw, 0.95rem);
+  }
+}
+
 /* Značky */
 .brands {
   display: flex;
@@ -319,8 +325,8 @@ details summary {
   color: #ffffff;
   border-radius: 12px;
   padding: 20px;
-  max-width: 1088px;
   text-align: center;
+  margin: 0 auto;
 }
 
 /* Tlačítka */
@@ -627,5 +633,16 @@ position: relative;
 @media (max-width: 624px){
   .kpi{
     flex-direction: column;
+  }
+}
+
+@media(max-width:600px){
+  .consent{
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .muted {
+    font-size: clamp(0.85rem, 2.3vw, 1rem);
   }
 }
