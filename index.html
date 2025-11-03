@@ -1,46 +1,51 @@
 <!doctype html>
 <html lang="cs">
-
 <head>
   <meta charset="utf-8">
   <title>Plynservis Liberec – servis a revize plynových kotlů | Vladimír Řehák</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description"
-    content="Servis a revize plynových kotlů v Liberci a okolí. Opravy, údržba, montáže a revizní protokoly. Rychlý výjezd, certifikovaný technik. Kontaktujte nás.">
-  <link rel="icon" type="image/png" href="./img/favicons/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="./img/favicons/favicon.svg" />
-  <link rel="shortcut icon" href="./img/favicons/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="Plynservis" />
-  <link rel="manifest" href="./img/favicons/site.webmanifest" />
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="Servis a revize plynových kotlů v Liberci a okolí. Opravy, údržba, montáže a revizní protokoly. Rychlý výjezd, certifikovaný technik. Kontaktujte nás.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#F5D601">
 
-  <link rel="canonical" href="https://www.priklad-domena.cz/">
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="./img/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="./img/favicons/favicon.svg">
+  <link rel="shortcut icon" href="./img/favicons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Plynservis">
+  <link rel="manifest" href="./img/favicons/site.webmanifest">
+
+  <!-- Canonical (GH Pages verze – až bude doména, přepiš) -->
+  <link rel="canonical" href="https://mirstep019.github.io/PlynServis/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Plynservis Liberec – servis a revize plynových kotlů">
   <meta property="og:description" content="Rychlý servis, revize a montáže plynových kotlů v Liberci a okolí. Certifikovaný technik, revizní protokoly.">
-  <meta property="og:url" content="https://www.priklad-domena.cz/">
-  <meta property="og:image" content="https://www.priklad-domena.cz/og-preview.jpg">
+  <meta property="og:url" content="https://mirstep019.github.io/PlynServis/">
+  <meta property="og:image" content="https://mirstep019.github.io/PlynServis/img/og-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="cs_CZ">
   <meta name="twitter:card" content="summary_large_image">
 
-  
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"
-/>
-<link rel="stylesheet" href="./css/styles.css">
+  <!-- Performance: preload LCP obrázku -->
+  <link rel="preload" as="image" href="./img/hero-1.jpg" imagesrcset="./img/hero-1.jpg">
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
+
 
 <body>
   <!-- HEADER / NAVBAR -->
   <header class="site-header" aria-label="Hlavní navigace">
   <div class="container nav-wrap">
     <!-- Značka -->
-    <a class="brand" href="/" aria-label="Plynservis Liberec Vladimír Řehák">
+    <a class="brand" href="./" aria-label="Plynservis Liberec Vladimír Řehák">
       <span class="brand-long">
         <span class="brand-first">Plynservis Liberec</span>
         <span class="brand-last">Vladimír Řehák</span>
@@ -88,7 +93,7 @@
 <section class="hero" aria-labelledby="h1">
   <!-- Pozadí: rotující obrázky -->
   <div class="hero-bg" aria-hidden="true">
-    <img class="hero-slide is-active" src="./img/hero-1.jpg" alt="" width="1920" height="900" loading="eager">
+    <img class="hero-slide is-active" src="./img/hero-1.jpg" alt="" width="1920" height="900" loading="eager" decoding="async" fetchpriority="high">
     <img class="hero-slide" src="./img/hero-2.jpg" alt="" width="1920" height="900" loading="lazy">
     <img class="hero-slide" src="./img/hero-3.png" alt="" width="1920" height="900" loading="lazy">
     <div class="hero-blur"></div>
@@ -304,8 +309,8 @@
         </div>
         <p class="muted">
             © 2025 Vladimír Řehák – Plynservis Liberec •
-            <a href="/obchodni-podminky.html">Obchodní podmínky</a> •
-            <a href="/gdpr.html">GDPR</a>
+            <a href="./obchodni-podminky.html">Obchodní podmínky</a> •
+            <a href="./gdpr.html">GDPR</a>
         </p>
     </div>
 </footer>
@@ -316,8 +321,8 @@
     "@context": "https://schema.org",
     "@type": "HVACBusiness",
     "name": "Plynservis Liberec – Vladimír Řehák",
-    "image": "https://www.priklad-domena.cz/og-preview.jpg",
-    "url": "https://www.priklad-domena.cz/",
+    "image": "https://mirstep019.github.io/PlynServis/og-preview.jpg",
+    "url": "https://mirstep019.github.io/PlynServis/",
     "telephone": "+420603212893",
     "email": "rehakson@seznam.cz",
     "address": {
@@ -386,7 +391,7 @@
           // zavřít menu po kliknutí na mobilu
           if (nav.classList.contains('is-open')) {
             nav.classList.remove('is-open');
-            toggle.setAttribute('aria-expanded', 'false');
+            btn.setAttribute('aria-expanded', 'false');
           }
         }
       });
