@@ -400,14 +400,27 @@ textarea {
   left: -9999px;
 }
 
-.consent {
-  display: flex;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  align-items: center;
-  width: auto;
-  justify-content: flex-start;
+.consent{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  width:100%;
+  max-width:100%;
 }
+
+.consent .muted{
+  flex:1 1 auto;
+  min-width:0;             /* DŮLEŽITÉ: dovolí lámat řádek ve flexu */
+  overflow-wrap:anywhere;  /* pro jistotu, když je dlouhá fráze */
+}
+
+.checkbox{ flex:0 0 auto; }
+
+@media(max-width:600px){
+  .consent{ flex-wrap:wrap; }   /* checkbox na řádku, text pod něj pokud je málo místa */
+  .consent .muted{ margin-top:6px; }
+}
+
 
 @media (max-width: 640px) {
   .row {
