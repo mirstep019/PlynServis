@@ -401,12 +401,19 @@ textarea {
 }
 
 .consent{
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
-  width:100%;
-  max-width:100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  flex-wrap: nowrap;
 }
+
+.consent .checkbox{
+  flex: 0 0 auto;
+  width: 17px;
+  height: 17px;
+}
+
 
 .consent .muted{
   flex:1 1 auto;
@@ -418,8 +425,14 @@ textarea {
 
 @media(max-width:600px){
   .consent{ flex-wrap:wrap; }   /* checkbox na řádku, text pod něj pokud je málo místa */
-  .consent .muted{ margin-top:6px; }
 }
+@media (max-width:600px){
+  #gdpr-note{
+    font-size:clamp(0.85rem,2.3vw,1rem);
+    line-height:1.4;
+  }
+}
+
 
 
 @media (max-width: 640px) {
