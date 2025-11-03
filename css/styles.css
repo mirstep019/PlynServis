@@ -232,6 +232,7 @@ ul {
   padding-right: 15px;
   border-radius: 12px;
   font-weight: 600;
+  text-wrap: nowrap;
 }
 
 @media(max-width:500px){
