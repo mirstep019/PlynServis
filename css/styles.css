@@ -406,6 +406,7 @@ textarea {
   margin-bottom: 15px;
   align-items: center;
   width: auto;
+  justify-content: flex-start;
 }
 
 @media (max-width: 640px) {
