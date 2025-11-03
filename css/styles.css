@@ -425,6 +425,7 @@ textarea {
 
 @media(max-width:600px){
   .consent{ flex-wrap:wrap; }   /* checkbox na řádku, text pod něj pokud je málo místa */
+  .muted {margin-bottom: 20px;}
 }
 @media (max-width:600px){
   #gdpr-note{
