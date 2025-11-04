@@ -1,5 +1,6 @@
 /* ====== PROMĚNNÉ ====== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 
 
@@ -7,7 +8,8 @@
   --bg: #ffffff;
   --ink: #111111;
   --ink-weak: #666666;
-  --brand: #F5D601;
+  --brand:  #e9be11; 
+  /* --brand:  #c8a20e; */
   --border: #eeeeee;
 }
 
@@ -37,7 +39,7 @@ a {
 img {
   max-width: 100%;
   height: auto;
-  display: inline-block;
+  display: block;
 }
 
 .container {
@@ -68,25 +70,6 @@ img {
   justify-content: space-between;
   min-height: 67px;
 }
-
-/* Značka (logo / text) */
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  text-transform: uppercase;
-  font-size: clamp(1rem, 4vw, 1.25rem);
-  color: var(--ink);
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
-}
-.brand-first, .brand-last { white-space: nowrap; }
-
-/* default: zobraz dlouhou, skryj krátkou */
-.brand-long { display: inline; }
-.brand-short { display: none; }
 
 
 
@@ -208,10 +191,25 @@ ul {
 }
 
 .hero h1 {
-  font-size: clamp(24px, 4vw, 40px);
+  font-size: clamp(34px, 8vw, 50px);
+  letter-spacing:-0.5px;
+  line-height:1.08;  
   margin-top: 0;
   margin-bottom: 8px;
 }
+@media(max-width:500px){
+  .hero h1{
+    font-size: 40px !important;
+    line-height: 1.15;
+  }
+}
+@media(max-width:400px){
+  .hero h1{
+    font-size: 32px !important;
+    line-height: 1.15;
+  }
+}
+
 
 /* KPI / Chips + CTA */
 .kpi {
@@ -640,15 +638,7 @@ position: relative;
 }
 
 
-/* na mobilech přepni na zkrácenou variantu */
-@media (max-width: 635px){
-  .brand {
-    font-size: clamp(1rem, 4vw, 1.25rem);  /* plynulé zmenšování */
-    line-height: 1.2;
-  }
-  .brand-long { display: none; }
-  .brand-short { display: inline; }
-}
+
 @media(max-width:500px){
   .nav-phone-text{
     display:none;
@@ -675,3 +665,70 @@ position: relative;
     font-size: clamp(0.85rem, 2.3vw, 1rem);
   }
 }
+
+
+/* DESKTOP rozložení navigace (≥1121px) */
+@media (min-width:1121px){
+  .nav {
+    flex: 1 1 auto;        /* střed vyroste mezi logem a telefonem */
+    display: flex;         /* umožní centrovat obsah */
+  }
+  .nav-list {
+    flex: 1 1 auto;
+    justify-content: space-evenly; /* rovnoměrně roztáhne odkazy */
+    /* alternativy:
+       justify-content: space-around;  // víc mezery okolo
+       justify-content: center;        // jen vycentrovat, bez roztahování
+    */
+  }
+
+  /* pro jistotu malá mezera mezi sekcemi v řádku */
+  .nav-wrap { gap: 12px; }
+}
+
+
+/* default desktop chování – nic neměníš */
+.hero-arrow{ display:none; }
+
+@media (max-width:768px){
+  .hero{
+    /* plná výška jen na mobilech */
+    min-height: 90vh;
+    min-height: 90dvh;            /* iOS/Android safe */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: clamp(16px, 4vw, 40px) 0;
+  }
+
+  /* lepší zalomení na mobilech */
+  .hero h1{
+    font-size: clamp(24px, 6vw, 40px);
+    line-height: 1.15;
+    margin: 0 16px 10px;
+    text-wrap: balance;
+    hyphens: auto;
+  }
+  .hero .hero-text{
+    max-width: 70ch;
+    margin: 20px 16px 0;
+    font-size: clamp(15px, 3.6vw, 18px);
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-arrow{
+    display:inline-flex;
+    margin-top:20px;
+    padding:12px 14px;
+    border-radius: 50px;
+    background:rgba(0,0,0,.17);
+    color:var(--brand);
+    z-index: 4;
+  }
+  .hero-arrow i{
+    font-size:20px;
+  }
+
+}
+
