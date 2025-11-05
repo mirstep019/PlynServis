@@ -34,6 +34,7 @@
   <!-- Performance: preload LCP obrázku -->
   <link rel="preload" as="image" href="./img/hero-1.jpg" imagesrcset="./img/hero-1.jpg">
 
+
   <!-- CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
   <link rel="stylesheet" href="./css/styles.css">
@@ -222,66 +223,79 @@
     </section>
 
     <!-- FORMULÁŘ -->
-    <section id="formular" class="section container" aria-labelledby="form-title">
-      <h2 id="form-title">Kontaktní formulář</h2>
-      <form method="post" action="/api/form" aria-describedby="gdpr-note">
-        <!-- HONEYPOT proti spamu -->
-        <input
-          type="text"
-          name="website"
-          tabindex="-1"
-          autocomplete="off"
-          class="hp"
-          aria-hidden="true">
+<section id="formular" class="section container" aria-labelledby="form-title">
+  <h2 id="form-title">Kontaktní formulář</h2>
 
-        <div class="row">
-          <div>
-            <label for="jmeno">Jméno</label>
-            <input id="jmeno" name="jmeno" type="text" autocomplete="name" required>
-          </div>
-          <div>
-            <label for="tel">Telefon</label>
-            <input id="tel" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required>
-          </div>
-        </div>
+  <form id="contact-form"
+        method="POST"
+        action="https://formsubmit.co/0b9a6f8ec68bf7654cbe689e2060df14"
+        aria-describedby="gdpr-note"
+        novalidate>
 
-        <div class="row">
-          <div>
-            <label for="email">E-mail</label>
-            <input id="email" name="email" type="email" autocomplete="email">
-          </div>
-          <div>
-            <label for="adresa">Adresa</label>
-            <input id="adresa" name="adresa" type="text" autocomplete="street-address">
-          </div>
-        </div>
+    <!-- HONEYPOT proti spamu -->
+    <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
 
-        <label for="zprava">Zpráva (popis problému / požadavku)</label>
-        <textarea id="zprava" name="zprava" rows="5" required></textarea>
+    <!-- FormSubmit hidden -->
+    <input type="text" name="_honey" style="display:none">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Poptávka z webu – Plynservis Liberec">
+    <input type="hidden" name="_template" value="table">
 
-        <label class="consent">
-          <input class="checkbox" type="checkbox" name="souhlas" required>
-          <span id="gdpr-note" class="muted">Souhlasím se zpracováním údajů pro vyřízení poptávky.</span>
-        </label>
+    <div class="row">
+      <div>
+        <label for="jmeno">Jméno</label>
+        <input id="jmeno" name="jmeno" type="text" autocomplete="name" required>
+      </div>
+      <div>
+        <label for="tel">Telefon</label>
+        <input id="tel" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required>
+      </div>
+    </div>
 
-        <button class="btns" type="submit">Odeslat</button>
-        <p class="muted">Raději volat? <a href="tel:+420603212893">603 212 893</a></p>
-      </form>
-      <!-- Pozn.: pokud nemáte backend, použijte např. Formspree / Netlify Forms. -->
-    </section>
+    <div class="row">
+      <div>
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div>
+        <label for="adresa">Adresa</label>
+        <input id="adresa" name="adresa" type="text" autocomplete="street-address" required>
+      </div>
+    </div>
+
+    <label for="zprava">Zpráva (popis problému / požadavku)</label>
+    <textarea id="zprava" name="zprava" rows="5" required></textarea>
+
+    <label class="consent" id="consent-label">
+      <input class="checkbox" type="checkbox" name="souhlas" required>
+      <span id="gdpr-note" class="muted">Souhlasím se zpracováním údajů pro vyřízení poptávky.</span>
+    </label>
+
+
+    <button class="btns space" type="submit">Odeslat</button>
+    
+    <!-- hlášky -->
+    <p id="form-success" class="muted" style="display:none;margin-top:10px" aria-live="polite">
+      ✅ Děkujeme, zpráva byla úspěšně odeslána.
+    </p>
+    <p id="form-error" class="muted" style="display:none;margin-top:10px;color:#b00020" aria-live="assertive">
+      ❌ Něco se pokazilo. Zkuste to prosím znovu nebo volejte
+      <a href="tel:+420603212893">603&nbsp;212&nbsp;893</a>.
+    </p>
+
+
+    <p class="muted">Raději volat? <a href="tel:+420603212893">603 212 893</a></p>
+  </form>
+</section>
 
     <!-- MAPA -->
     <section id="mapa" class="section container" aria-labelledby="mapa-title">
       <h2 id="mapa-title">Kde působím</h2>
       <p class="muted">Působím na území města Liberec a přijíždím také do blízkých obcí v okolí.</p>
-      <div class="map-wrap">
-        <iframe
-          title="Mapa – Plynservis Liberec"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1784.3372500560404!2d15.052244592580072!3d50.767528992051275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47093698e3e964a9%3A0x4b06de8c3eca2a5!2sPLYN%20-%20SERVIS%20CZ%2C%20s.r.o.!5e0!3m2!1scs!2scz!4v1761997051879!5m2!1scs!2scz"
-          style="border:0;width:100%;height:100%">
-        </iframe>
+      <div class="map-wrap" id="map-placeholder">
+        <div class="map-skel">
+          <span>Načítám mapu…</span>
+        </div>
       </div>
     </section>
   </main>
@@ -403,6 +417,8 @@
 
     
   </script>
+
+
   <script>
   // HERO CAROUSEL (fade)
   const slides = Array.from(document.querySelectorAll('.hero-slide'));
@@ -426,6 +442,171 @@
     });
   }
 </script>
+
+<script>
+(function(){
+  const form  = document.getElementById('contact-form');
+  if(!form) return;
+
+  const btn   = form.querySelector('button[type="submit"]');
+  const okEl  = document.getElementById('form-success');
+  const errEl = document.getElementById('form-error');
+
+  const consent      = form.querySelector('input[name="souhlas"]');
+  const consentLabel = document.getElementById('consent-label') || consent.closest('label.consent');
+  const gdprNote     = document.getElementById('gdpr-note');
+  if (gdprNote && !gdprNote.dataset.default) gdprNote.dataset.default = gdprNote.textContent;
+
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+  const phoneDigits = (v) => v.replace(/[^\d+]/g,'').trim();
+
+  function setErr(el, has){
+    el.classList.toggle('is-invalid', !!has);
+    el.setAttribute('aria-invalid', has ? 'true' : 'false');
+  }
+  function setConsentErr(has){
+    consent.classList.toggle('is-invalid', !!has);
+    if (consentLabel) consentLabel.classList.toggle('consent-error', !!has);
+    if (gdprNote) gdprNote.textContent = has
+      ? 'Zaškrtněte prosím souhlas se zpracováním údajů.'
+      : (gdprNote.dataset.default || gdprNote.textContent);
+  }
+
+  function validate(){
+    let valid = true;
+
+    // všechna required pole (kromě checkboxu souhlas – ten řešíme zvlášť)
+    const requiredFields = Array.from(form.querySelectorAll('input[required], textarea[required], select[required]'))
+      .filter(el => !(el.type === 'checkbox' && el.name === 'souhlas'));
+
+    requiredFields.forEach(el=>{
+      const empty = !el.value.trim();
+      setErr(el, empty);
+      if (empty) valid = false;
+    });
+
+    // speciální pravidla
+    const tel = form.querySelector('#tel');
+    if (tel && tel.value.trim()){
+      const d = phoneDigits(tel.value);
+      const bad = d.replace(/\D/g,'').length < 9;
+      setErr(tel, bad);
+      if (bad) valid = false;
+    }
+
+    const email = form.querySelector('#email');
+    if (email && email.value.trim()){
+      const bad = !emailRe.test(email.value.trim());
+      setErr(email, bad);
+      if (bad) valid = false;
+    }
+
+    // souhlas
+    const badConsent = consent ? !consent.checked : false;
+    setConsentErr(badConsent);
+    if (badConsent) valid = false;
+
+    // hláška
+    if(!valid){
+      if (errEl){
+        errEl.style.display = 'block';
+        errEl.textContent = '❌ Vyplňte prosím zvýrazněné položky.';
+      }
+    }else{
+      if (errEl) errEl.style.display = 'none';
+    }
+    return valid;
+  }
+
+  // live odstraňování chyb při psaní
+  form.addEventListener('input', (e)=>{
+    const t = e.target;
+    if (t.matches('input, textarea')){
+      if (t.required && t.value.trim()) setErr(t, false);
+      if (t.id === 'email' && t.value.trim()) setErr(t, !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(t.value.trim()));
+      if (t.id === 'tel' && t.value.trim()){
+        const d = t.value.replace(/[^\d+]/g,'');
+        setErr(t, d.replace(/\D/g,'').length < 9);
+      }
+    }
+  });
+  consent && consent.addEventListener('change', ()=> setConsentErr(!consent.checked));
+
+  async function sendForm(){
+    if (okEl) okEl.style.display  = 'none';
+    if (errEl) errEl.style.display = 'none';
+
+    btn.disabled = true;
+    const originalTxt = btn.textContent;
+    btn.textContent = 'Odesílám…';
+
+    try{
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      if(res.ok){
+        form.reset();
+        form.querySelectorAll('.is-invalid').forEach(el=>el.classList.remove('is-invalid'));
+        setConsentErr(false);
+        if (okEl){
+          okEl.style.display = 'block';
+          okEl.scrollIntoView({behavior:'smooth', block:'center'});
+        }
+      }else{
+        if (errEl){
+          errEl.style.display = 'block';
+          errEl.scrollIntoView({behavior:'smooth', block:'center'});
+        }
+      }
+    }catch(e){
+      if (errEl){
+        errEl.style.display = 'block';
+        errEl.scrollIntoView({behavior:'smooth', block:'center'});
+      }
+    }finally{
+      btn.disabled = false;
+      btn.textContent = originalTxt;
+    }
+  }
+
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    if (validate()) sendForm();
+    else {
+      const firstBad = form.querySelector('.is-invalid, input[name="souhlas"]:not(:checked)');
+      if(firstBad) firstBad.focus();
+    }
+  });
+})();
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded',()=>{
+    const ph = document.getElementById('map-placeholder');
+    if(!ph) return;
+
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          ph.innerHTML = `
+            <iframe
+              title="Mapa – Plynservis Liberec"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1784.3372500560404!2d15.052244592580072!3d50.767528992051275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47093698e3e964a9%3A0x4b06de8c3eca2a5!2sPLYN%20-%20SERVIS%20CZ%2C%20s.r.o.!5e0!3m2!1scs!2scz!4v1761997051879!5m2!1scs!2scz"
+              style="border:0;width:100%;height:100%">
+            </iframe>`;
+          obs.disconnect();
+        }
+      });
+    })
+
+    obs.observe(ph);
+  });
+</script>
+
+
 
 </body>
 </html>
