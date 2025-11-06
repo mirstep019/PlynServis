@@ -5,7 +5,7 @@
 
 
 :root {
-  --bg: #ececec;
+  --bg: #fafafa;
   --ink: #111111;
   --ink-weak: #666666;
   --brand:  #f4c715; 
@@ -60,14 +60,14 @@ img {
 }
 
 .brand:hover img {
-  content: url("img/ps-logo-white.svg");
+  content: url("../img/ps-logo-white.svg");
 }
 .brand img {
-  transition: opacity .25s ease;
+  transition: .5s ease;
 }
 
 .brand:hover img {
-  opacity:1;
+  opacity: 1;
 }
 
 
@@ -151,11 +151,13 @@ img {
   padding-left: 16px;
   padding-right: 16px;
   border-radius: 8px;
+  transition: transform .5s ease-in-out, background-color .5s ease;
 }
 
 .nav-item a:hover,
 .nav-item a:focus-visible {
-  background-color: #ebcc01;
+  background-color: #111111;
+  color: #fff;
 }
 
 .btns, .btn {
@@ -189,6 +191,45 @@ img {
   color:#fff;
 }
 .nav-phone:hover{ color:var(--brand); }
+
+.nav-phone{
+  /* tvoje vlastnosti zůstávají */
+  position:relative;
+  overflow:hidden; /* aby vlna nepřetékala */
+
+  transition:color .35s cubic-bezier(.4,0,.2,1);
+}
+
+/* "vlna" */
+.nav-phone::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:100%;
+  background-color: #ececec;
+  transform:translateY(100%);
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
+  z-index:0;
+}
+
+/* na hover vjede tahle vlna nahoru */
+.nav-phone:hover::before{
+  transform:translateY(0%);
+}
+
+/* aby text byl nad tím */
+.nav-phone *{
+  position:relative;
+  z-index:1;
+}
+
+/* text změna barvy = černá */
+.nav-phone:hover{
+  color:#111;
+}
+
+
+
 
 .space {
   margin-top: 15px;
@@ -272,7 +313,7 @@ ul {
 }
 
 .kpi .pill {
-  background-color: #111111;
+  background-color: #11111160;
   color: #ffffff;
   padding-top: 12px;
   padding-bottom: 12px;
@@ -358,7 +399,7 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
 .card-head {
   background: var(--brand);     /* nebo jiná brand barva */
-  padding: 12px 16px;
+  padding: 18px 16px;
   border-radius: 12px 12px 0 0;
   border-bottom: 1px solid #eee;
 }
@@ -382,6 +423,16 @@ details summary {
   text-align: center;
   margin: 0 auto;
 }
+
+#informace .card-head {
+  background-color: #111111;
+  color: var(--brand);
+}
+
+textarea {
+  resize: vertical;
+}
+
 
 /* Tlačítka */
 .btn {
@@ -518,11 +569,12 @@ details + details {
 
 /* Footer */
 footer {
-  background-color: var(--brand);
+  background: linear-gradient(180deg, #f4c715, #ffea96);
   padding-top: 28px;
   padding-bottom: 28px;
   margin-top: 32px;
 }
+
 
 /* ====== BREAKPOINT: NAVBAR – MOBILE (≤ 768px) ====== */
 
@@ -557,7 +609,7 @@ footer {
     border-radius: 12px 0 0 12px;
   }
   .nav-item a:hover{
-    background: #ebcc01;
+    background: #f4c715;
   }
 }
 
@@ -689,7 +741,7 @@ position: relative;
 }
 
 .hero-dots .dot.is-active {
-  background-color: #ffffff7e;
+  background-color: var(--brand);
 }
 
 
