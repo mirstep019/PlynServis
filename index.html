@@ -40,16 +40,18 @@
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 
-
+<div class="page">
 <body>
   <!-- HEADER / NAVBAR -->
   <header class="site-header" aria-label="Hlavní navigace">
-  <div class="container nav-wrap">
-    <!-- Značka -->
-    <a class="brand" href="./" aria-label="Plynservis Liberec Vladimír Řehák">
-      <img src="./img/ps-logo.svg" data-src-default="./img/ps-logo.svg" data-src-hover="./img/ps-logo-white.svg"
-        alt="Plynservis Liberec – Vladimír Řehák" width="180">
-    </a>
+    <div class="container nav-wrap">
+      <!-- Značka -->
+      <a class="brand" href="./" aria-label="Plynservis Liberec Vladimír Řehák">
+        <img class="logo-dark" src="./img/ps-logo.svg" alt="Plynservis Liberec – Vladimír Řehák" width="180"
+          height="auto">
+        <img class="logo-white" src="./img/ps-logo-white.svg" alt="" width="180" height="auto" aria-hidden="true">
+      </a>
+
 
 
 
@@ -102,7 +104,7 @@
 
   <!-- Obsah nad pozadím -->
   <div class="hero-inner container">
-    <h1 id="h1">Servis a revize plynových kotlů Liberec a okolí</h1>
+    <h1 id="h1">Servis a revize plynových kotlů v Liberci a okolí</h1>
     <p class="muted">Rychlé opravy, čištění a pravidelná údržba kotlů. Certifikovaný plynservis technik s praxí.</p>
 
     <div class="kpi">
@@ -120,11 +122,12 @@
       (Vratislavice, Rochlice, Jablonec nad Nisou). Pracuji pro domácnosti, byty, rodinné domy i menší firmy.
       Jsem certifikovaný servisní technik s mnohaletou zkušeností.
     </p>
-  </div>
+    <a href="#sluzby" class="hero-arrow" aria-label="Posunout na obsah">
+      <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+    </a>
+    </div>
 
- <a href="#sluzby" class="hero-arrow" aria-label="Posunout na obsah">
-  <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
-</a>
+
 
 
   <!-- Dots -->
@@ -637,7 +640,7 @@ document.querySelector('.brand')?.addEventListener('click', (e)=>{
   });
 </script>
 
-
-
 </body>
+</div>
+
 </html>

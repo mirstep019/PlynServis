@@ -59,16 +59,28 @@ img {
   display: block;
 }
 
-.brand:hover img {
-  content: url("../img/ps-logo-white.svg");
+.brand {
+  display:inline-block;
+  line-height:0;
 }
-.brand img {
-  transition: .5s ease;
+.brand img { display:block; transition:opacity .35s ease; }
+.brand .logo-white { display:none; }
+
+@media (hover:hover) and (pointer:fine){
+  .brand:hover .logo-dark  { display:none; }
+  .brand:hover .logo-white { display:block; }
+  .brand:focus-visible .logo-dark  { display:none; }
+  .brand:focus-visible .logo-white { display:block; }
 }
 
-.brand:hover img {
-  opacity: 1;
+@media (hover:none){
+  .brand:active .logo-dark  { display:none; }
+  .brand:active .logo-white { display:block; }
 }
+
+a, button { -webkit-tap-highlight-color: rgba(0,0,0,.15); }
+
+.brand img { -webkit-touch-callout: none; }
 
 
 
@@ -85,7 +97,6 @@ img {
   font-size: 0.95rem;
 }
 
-/* ====== NAVBAR ====== */
 
 .site-header {
   position: sticky;
@@ -154,23 +165,23 @@ img {
   transition: transform .5s ease-in-out, background-color .5s ease;
 }
 
-.nav-item a:hover,
+/* .nav-item a:hover,
 .nav-item a:focus-visible {
   background-color: #111111;
   color: #fff;
-}
+} */
 
 .btns, .btn {
   transition: transform .5s ease-in-out, background-color .5s ease, box-shadow .5s ease;
   box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 
-.btns:hover, .btn:hover {
+/* .btns:hover, .btn:hover {
   color: #111111;
   transform: translateY(-1px);
   background-color: #ffff;
   box-shadow: 0 4px 12px rgba(0,0,0,.15);
-}
+} */
 
 .btns:active {
   transform: translateY(0);
@@ -190,12 +201,11 @@ img {
   background-color:var(--ink);
   color:#fff;
 }
-.nav-phone:hover{ color:var(--brand); }
+/* .nav-phone:hover{ color:var(--brand); } */
 
 .nav-phone{
-  /* tvoje vlastnosti zůstávají */
   position:relative;
-  overflow:hidden; /* aby vlna nepřetékala */
+  overflow:hidden; 
 
   transition:color .35s cubic-bezier(.4,0,.2,1);
 }
@@ -212,18 +222,15 @@ img {
   z-index:0;
 }
 
-/* na hover vjede tahle vlna nahoru */
 .nav-phone:hover::before{
   transform:translateY(0%);
 }
 
-/* aby text byl nad tím */
 .nav-phone *{
   position:relative;
   z-index:1;
 }
 
-/* text změna barvy = černá */
 .nav-phone:hover{
   color:#111;
 }
@@ -240,7 +247,6 @@ img {
 .nav{ display:block; }
 .nav-toggle{ display:none; }
 
-/* telefon úplně vpravo na desktopu */
 .nav-phone{ margin-left:auto; }
 
 
@@ -382,7 +388,7 @@ ul {
 .card {
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 0;              /* už se nepadá na card – padá až content */
+  padding: 0;             
   background: #fff;
   transition: ease-in-out 0.3s;
 }
@@ -398,7 +404,7 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .card-head {
-  background: var(--brand);     /* nebo jiná brand barva */
+  background: var(--brand);   
   padding: 18px 16px;
   border-radius: 12px 12px 0 0;
   border-bottom: 1px solid #eee;
@@ -464,6 +470,18 @@ textarea {
   cursor: pointer;
 }
 
+.hero-arrow{
+    display:inline-flex;
+    margin-top:20px;
+    padding:12px 14px;
+    border-radius: 50px;
+    background:rgba(0,0,0,.17);
+    color:var(--brand);
+    z-index: 4;
+  }
+  .hero-arrow i{
+    font-size:20px;
+}
 
 
 button .btn {
@@ -522,14 +540,14 @@ textarea {
 
 .consent .muted{
   flex:1 1 auto;
-  min-width:0;             /* DŮLEŽITÉ: dovolí lámat řádek ve flexu */
-  overflow-wrap:anywhere;  /* pro jistotu, když je dlouhá fráze */
+  min-width:0;             
+  overflow-wrap:anywhere; 
 }
 
 .checkbox{ flex:0 0 auto; }
 
 @media(max-width:600px){
-  .consent{ flex-wrap:wrap; }   /* checkbox na řádku, text pod něj pokud je málo místa */
+  .consent{ flex-wrap:wrap; }   
   .muted {margin-bottom: 20px;}
 }
 @media (max-width:600px){
@@ -585,7 +603,7 @@ footer {
   /* telefon a hamburger drž spolu vpravo */
   .nav-phone{
     margin-left:auto;
-    margin-right:8px; /* mezera před hamburgerem */
+    margin-right:8px;
   }
   .nav-toggle{
     margin-left:0;
@@ -620,7 +638,6 @@ address {
   font-style: normal;
 }
 
-/* Přístupnost pro skrytý text vedle ikon */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -633,7 +650,6 @@ address {
   border: 0;
 }
 
-/* Spacing ikon v navigaci a tlačítkách */
 .nav-item.nav-phone i {
   margin-right: 8px;
   vertical-align: -1px;
@@ -721,7 +737,6 @@ position: relative;
   margin-top: 30px;
 }
 
-/* Dots */
 .hero-dots {
   position: absolute;
   left: 50%;
@@ -752,7 +767,7 @@ position: relative;
   }
 
   .nav-phone{
-    padding:14px 14px; /* stačí trochu upravit padding aby to nebylo moc široký */
+    padding:14px 14px;
   }
 }
 
@@ -795,7 +810,9 @@ position: relative;
 
 
 /* default desktop chování – nic neměníš */
-.hero-arrow{ display:none; }
+/* .hero-arrow{ display: inline-flex; } */
+
+
 
 @media (max-width:768px){
   .hero{
@@ -824,19 +841,6 @@ position: relative;
     overflow-wrap: anywhere;
   }
 
-  .hero-arrow{
-    display:inline-flex;
-    margin-top:20px;
-    padding:12px 14px;
-    border-radius: 50px;
-    background:rgba(0,0,0,.17);
-    color:var(--brand);
-    z-index: 4;
-  }
-  .hero-arrow i{
-    font-size:20px;
-  }
-
 }
 
 .map-skel{
@@ -854,9 +858,142 @@ position: relative;
 }
 
 
+/* === DESKTOP: skutečný hover (myš/trackpad) === */
+@media (hover:hover) and (pointer:fine){
+  /* nav odkazy */
+  .nav-item a:hover,
+  .nav-item a:focus-visible {
+    background-color:#111111;
+    color:#fff;
+  }
+
+  /* tlačítka */
+  .btns:hover, .btn:hover {
+    color:#111111;
+    transform: translateY(-1px);
+    background-color:#fff;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+  }
+
+  /* nav-phone „vlna“ + barva textu */
+  .nav-phone:hover { color:#111; }
+  .nav-phone:hover::before { transform: translateY(0%); }
+}
+
+/* === MOBILE/TOUCH: žádný persistent hover, jen krátký :active === */
+@media (hover:none){
+  /* nav odkazy – reakce na tap */
+  .nav-item a:active {
+    background-color:#111111;
+    color:#fff;
+    transform:none;
+  }
+
+  /* tlačítka – jemný tap efekt */
+  .btns:active, .btn:active {
+    transform: translateY(0);
+    box-shadow:0 2px 6px rgba(0,0,0,.10);
+    background-color:#fff;
+    color:#111111;
+  }
+
+  /* nav-phone vlna jen při stisku */
+  .nav-phone::before {
+    transform: translateY(100%);
+  }
+  .nav-phone:active::before {
+    transform: translateY(0%);
+  }
+  .nav-phone:active { color:#111; }
+}
+
+
 
 /* zvýraznění inputů */
 .is-invalid{ border-color:#b00020 !important; outline:0; box-shadow:0 0 0 2px rgba(176,0,32,.15); }
 /* checkbox + text souhlasu */
 label.consent.consent-error span{ color:#b00020; font-weight:600; }
 input[type="checkbox"].is-invalid{ outline:2px solid #b00020; outline-offset:2px; }
+
+
+
+
+/* 1) Sticky :hover na iOS – vypnout na dotykových zařízeních */
+@media (hover:none) {
+  a, button, .nav-item a, .nav-phone {
+    cursor: default;                 /* zamezí "přilepenému" hoveru */
+  }
+  .brand:active .logo-dark  { display:none; }
+  .brand:active .logo-white { display:block; }
+}
+
+/* 2) Lepší tap pocit + menší „blesk“ při tapnutí */
+a, button {
+  -webkit-tap-highlight-color: rgba(0,0,0,.12);
+  touch-action: manipulation;        /* sníží ghost-clicky, double-tap zoom apod. */
+}
+
+/* 3) 100vh bug (adresní lišta) – použij dynamické vh jednotky, kde to jde */
+:root {
+  /* fallback necháš své, tohle jen rozšíříš */
+}
+@supports (height: 100dvh) {
+  .hero { min-height: 90dvh; }       /* už máš – jen připomínka vzoru */
+}
+/* pro případy kde chceš plnou výšku: */
+/* .full-screen { min-height: 100dvh; } */
+
+/* 4) Omez gumové doscrolování „pod“ stránku (bounce) */
+html, body {
+  overscroll-behavior-y: contain;    /* iOS 16+ */
+  overflow-x: hidden;
+  height: 100%;
+}
+
+/* 5) Layout bez mezery pod footrem – sticky footer vzor
+      (když je obsah krátký). Obal si obsah wrapperem .page */
+.page {
+  min-height: 100dvh;                /* vyplní výšku viewportu korektně i na iOS */
+  display: flex;
+  flex-direction: column;
+}
+footer { margin-top: auto; }
+
+/* 6) Form zoom bug – iOS zvětšuje stránku u inputů < 16px.
+      Ujisti se, že textové inputy mají min 16px */
+input, textarea, select {
+  font-size: 16px;                   /* zabrání nežádoucímu auto-zoomu */
+}
+
+/* 7) Scroll v „mapě“/iframe boxu – přirozená kinetika */
+.map-wrap {
+  -webkit-overflow-scrolling: touch; /* hladký scroll uvnitř kontejneru (iOS) */
+}
+
+/* 8) Bez dlouhého touch-menu nad logem/ikonami (volitelné) */
+.brand img { 
+  -webkit-touch-callout: none; 
+  user-select: none;
+}
+
+/* 9) Bezpečná oblast pro notch (pokud bys kdy potřeboval fixní bar).
+      Ukázka pro fixní header s respektem k vybrání displeje: */
+.site-header {
+  padding-top: max(0px, env(safe-area-inset-top));
+}
+
+/* 10) Bleskové vyčištění hover efektů na mobilech jen při stisku
+       – tvé vlnění na .nav-phone necháme, ale na mobilech nenecháme „viset“ */
+@media (hover:none) {
+  .nav-phone:hover::before { transform: translateY(100%); }  /* hover ignoruj */
+  .nav-phone:active::before { transform: translateY(0%); }   /* jen během stisku */
+  .nav-phone:hover { color: inherit; }                        /* bez sticky barvy po puštění */
+}
+
+/* 11) iOS button/focus pocit – decentní tap efekt */
+@media (hover:none) {
+  .btn:active, .btns:active, .nav-phone:active {
+    transform: translateY(0);         /* žádné „zůstal aktivní“ po tapnutí */
+    box-shadow: 0 2px 6px rgba(0,0,0,.10);
+  }
+}
