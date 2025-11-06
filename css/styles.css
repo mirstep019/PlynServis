@@ -80,7 +80,6 @@ img {
 
 a, button { -webkit-tap-highlight-color: rgba(0,0,0,.15); }
 
-.brand img { -webkit-touch-callout: none; }
 
 
 
@@ -915,85 +914,7 @@ position: relative;
 label.consent.consent-error span{ color:#b00020; font-weight:600; }
 input[type="checkbox"].is-invalid{ outline:2px solid #b00020; outline-offset:2px; }
 
-
-
-
-/* 1) Sticky :hover na iOS – vypnout na dotykových zařízeních */
-@media (hover:none) {
-  a, button, .nav-item a, .nav-phone {
-    cursor: default;                 /* zamezí "přilepenému" hoveru */
-  }
-  .brand:active .logo-dark  { display:none; }
-  .brand:active .logo-white { display:block; }
-}
-
-/* 2) Lepší tap pocit + menší „blesk“ při tapnutí */
-a, button {
-  -webkit-tap-highlight-color: rgba(0,0,0,.12);
-  touch-action: manipulation;        /* sníží ghost-clicky, double-tap zoom apod. */
-}
-
-/* 3) 100vh bug (adresní lišta) – použij dynamické vh jednotky, kde to jde */
-:root {
-  /* fallback necháš své, tohle jen rozšíříš */
-}
-@supports (height: 100dvh) {
-  .hero { min-height: 90dvh; }       /* už máš – jen připomínka vzoru */
-}
-/* pro případy kde chceš plnou výšku: */
-/* .full-screen { min-height: 100dvh; } */
-
-/* 4) Omez gumové doscrolování „pod“ stránku (bounce) */
-html, body {
-  overscroll-behavior-y: contain;    /* iOS 16+ */
-  overflow-x: hidden;
-  height: 100%;
-}
-
-/* 5) Layout bez mezery pod footrem – sticky footer vzor
-      (když je obsah krátký). Obal si obsah wrapperem .page */
-.page {
-  min-height: 100dvh;                /* vyplní výšku viewportu korektně i na iOS */
-  display: flex;
-  flex-direction: column;
-}
-footer { margin-top: auto; }
-
-/* 6) Form zoom bug – iOS zvětšuje stránku u inputů < 16px.
-      Ujisti se, že textové inputy mají min 16px */
-input, textarea, select {
-  font-size: 16px;                   /* zabrání nežádoucímu auto-zoomu */
-}
-
-/* 7) Scroll v „mapě“/iframe boxu – přirozená kinetika */
-.map-wrap {
-  -webkit-overflow-scrolling: touch; /* hladký scroll uvnitř kontejneru (iOS) */
-}
-
-/* 8) Bez dlouhého touch-menu nad logem/ikonami (volitelné) */
-.brand img { 
-  -webkit-touch-callout: none; 
-  user-select: none;
-}
-
-/* 9) Bezpečná oblast pro notch (pokud bys kdy potřeboval fixní bar).
-      Ukázka pro fixní header s respektem k vybrání displeje: */
-.site-header {
-  padding-top: max(0px, env(safe-area-inset-top));
-}
-
-/* 10) Bleskové vyčištění hover efektů na mobilech jen při stisku
-       – tvé vlnění na .nav-phone necháme, ale na mobilech nenecháme „viset“ */
-@media (hover:none) {
-  .nav-phone:hover::before { transform: translateY(100%); }  /* hover ignoruj */
-  .nav-phone:active::before { transform: translateY(0%); }   /* jen během stisku */
-  .nav-phone:hover { color: inherit; }                        /* bez sticky barvy po puštění */
-}
-
-/* 11) iOS button/focus pocit – decentní tap efekt */
-@media (hover:none) {
-  .btn:active, .btns:active, .nav-phone:active {
-    transform: translateY(0);         /* žádné „zůstal aktivní“ po tapnutí */
-    box-shadow: 0 2px 6px rgba(0,0,0,.10);
-  }
-}
+/* 
+@media (hover:none){
+  .nav-phone:hover { color:#fff; }
+} */

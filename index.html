@@ -34,153 +34,127 @@
   <!-- Performance: preload LCP obrázku -->
   <link rel="preload" as="image" href="./img/hero-1.jpg" imagesrcset="./img/hero-1.jpg">
 
-
   <!-- CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 
-<div class="page">
 <body>
+<div class="page">
   <!-- HEADER / NAVBAR -->
-  <header class="site-header" aria-label="Hlavní navigace">
+  <header id="top" class="site-header" aria-label="Hlavní navigace">
     <div class="container nav-wrap">
-      <!-- Značka -->
-      <a class="brand" href="./" aria-label="Plynservis Liberec Vladimír Řehák">
-        <img class="logo-dark" src="./img/ps-logo.svg" alt="Plynservis Liberec – Vladimír Řehák" width="180"
-          height="auto">
+      <!-- Značka: scrolluje na začátek -->
+      <a class="brand" href="#top" aria-label="Plynservis Liberec Vladimír Řehák">
+        <img class="logo-dark" src="./img/ps-logo.svg" alt="Plynservis Liberec – Vladimír Řehák" width="180" height="auto">
         <img class="logo-white" src="./img/ps-logo-white.svg" alt="" width="180" height="auto" aria-hidden="true">
       </a>
 
+      <!-- Navigace (kolapsuje do dropdownu) -->
+      <nav class="nav" id="primary-navigation" aria-label="Primární">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#sluzby">Nabídka služeb</a></li>
+          <li class="nav-item"><a href="#informace">Informace</a></li>
+          <li class="nav-item"><a href="#formular">Kontaktní formulář</a></li>
+          <li class="nav-item"><a href="#mapa">Kde působím</a></li>
+        </ul>
+      </nav>
 
+      <!-- Telefon – vždy viditelný, mimo nav -->
+      <a class="nav-phone" href="tel:+420603212893">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+        <span class="nav-phone-text">603&nbsp;212&nbsp;893</span>
+      </a>
 
-
-
-    <!-- Navigace (kolapsuje do dropdownu) -->
-    <nav class="nav" id="primary-navigation" aria-label="Primární">
-      <ul class="nav-list">
-        <li class="nav-item"><a href="#sluzby">Nabídka služeb</a></li>
-        <li class="nav-item"><a href="#informace">Informace</a></li>
-        <li class="nav-item"><a href="#formular">Kontaktní formulář</a></li>
-        <li class="nav-item"><a href="#mapa">Kde působím</a></li>
-      </ul>
-    </nav>
-
-    <!-- Telefon – vždy viditelný, mimo nav -->
-    <a class="nav-phone" href="tel:+420603212893">
-      <i class="fa-solid fa-phone" aria-hidden="true"></i>
-      <span class="nav-phone-text">603&nbsp;212&nbsp;893</span>
-    </a>
-
-
-    <!-- Hamburger (mobile) -->
-    <button
-      class="nav-toggle"
-      type="button"
-      aria-label="Přepnout navigaci"
-      aria-controls="primary-navigation"
-      aria-expanded="false">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="sr-only">Menu</span>
-    </button>
-  </div>
-</header>
-
+      <!-- Hamburger (mobile) -->
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Přepnout navigaci"
+        aria-controls="primary-navigation"
+        aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+    </div>
+  </header>
 
   <main id="obsah">
     <!-- HERO -->
-    <!-- HERO s BG CAROUSELEM -->
-<section class="hero" aria-labelledby="h1">
-  <!-- Pozadí: rotující obrázky -->
-  <div class="hero-bg" aria-hidden="true">
-    <img class="hero-slide is-active" src="./img/hero-1.jpg" alt="" width="1920" height="900" loading="eager" decoding="async" fetchpriority="high">
-    <img class="hero-slide" src="./img/hero-2.jpg" alt="" width="1920" height="900" loading="lazy">
-    <img class="hero-slide" src="./img/hero-3.png" alt="" width="1920" height="900" loading="lazy">
-    <div class="hero-blur"></div>
-    <div class="hero-scrim"></div>
-  </div>
+    <section class="hero" aria-labelledby="h1">
+      <!-- Pozadí: rotující obrázky -->
+      <div class="hero-bg" aria-hidden="true">
+        <img class="hero-slide is-active" src="./img/hero-1.jpg" alt="" width="1920" height="900" loading="eager" decoding="async" fetchpriority="high">
+        <img class="hero-slide" src="./img/hero-2.jpg" alt="" width="1920" height="900" loading="lazy">
+        <img class="hero-slide" src="./img/hero-3.png" alt="" width="1920" height="900" loading="lazy">
+        <div class="hero-blur"></div>
+        <div class="hero-scrim"></div>
+      </div>
 
-  <!-- Obsah nad pozadím -->
-  <div class="hero-inner container">
-    <h1 id="h1">Servis a revize plynových kotlů v Liberci a okolí</h1>
-    <p class="muted">Rychlé opravy, čištění a pravidelná údržba kotlů. Certifikovaný plynservis technik s praxí.</p>
+      <!-- Obsah nad pozadím -->
+      <div class="hero-inner container">
+        <h1 id="h1">Servis a revize plynových kotlů v Liberci a okolí</h1>
+        <p class="muted">Rychlé opravy, čištění a pravidelná údržba kotlů. Certifikovaný plynservis technik s praxí.</p>
 
-    <div class="kpi">
-      <span class="pill">
-        <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
-         &nbsp; Liberec, Vratislavice, Rochlice, Jablonec n. N...
-      </span>
-      <a class="btn" href="#formular"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Napsat zprávu</a>
+        <div class="kpi">
+          <span class="pill">
+            <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
+            &nbsp; Liberec, Vratislavice, Rochlice, Jablonec n. N...
+          </span>
+          <a class="btn" href="#formular"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Napsat zprávu</a>
+        </div>
+
+        <p class="hero-text">
+          Poskytuji servis, opravy, revize a montáže plynových kotlů v Liberci a blízkém okolí
+          (Vratislavice, Rochlice, Jablonec nad Nisou). Pracuji pro domácnosti, byty, rodinné domy i menší firmy.
+          Jsem certifikovaný servisní technik s mnohaletou zkušeností.
+        </p>
+
+        <a href="#sluzby" class="hero-arrow" aria-label="Posunout na obsah">
+          <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <!-- Dots -->
+      <div class="hero-dots" aria-label="Přepínání snímků">
+        <button class="dot is-active" aria-label="Snímek 1"></button>
+        <button class="dot" aria-label="Snímek 2"></button>
+        <button class="dot" aria-label="Snímek 3"></button>
+      </div>
+    </section>
+
+    <div class="brands" aria-label="Značky kotlů">
+      <a href="https://www.vaillant.cz/" target="_blank" rel="noopener nofollow">
+        <img src="./img/brand-vaillant.svg" alt="Vaillant" width="170" height="60" loading="lazy">
+      </a>
+      <a href="https://www.bosch-homecomfort.com/global/en" target="_blank" rel="noopener nofollow">
+        <img src="./img/brand-junkers.svg" alt="Junkers" width="170" height="60" loading="lazy">
+      </a>
+      <a href="https://www.protherm.eu/" target="_blank" rel="noopener nofollow">
+        <img src="./img/brand-protherm.svg" alt="Protherm" width="170" height="60" loading="lazy">
+      </a>
     </div>
-
-    
-
-    <p class="hero-text">
-      Poskytuji servis, opravy, revize a montáže plynových kotlů v Liberci a blízkém okolí
-      (Vratislavice, Rochlice, Jablonec nad Nisou). Pracuji pro domácnosti, byty, rodinné domy i menší firmy.
-      Jsem certifikovaný servisní technik s mnohaletou zkušeností.
-    </p>
-    <a href="#sluzby" class="hero-arrow" aria-label="Posunout na obsah">
-      <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
-    </a>
-    </div>
-
-
-
-
-  <!-- Dots -->
-  <div class="hero-dots" aria-label="Přepínání snímků">
-    <button class="dot is-active" aria-label="Snímek 1"></button>
-    <button class="dot" aria-label="Snímek 2"></button>
-    <button class="dot" aria-label="Snímek 3"></button>
-  </div>
-</section>
-
-
-<div class="brands" aria-label="Značky kotlů">
-  <a href="https://www.vaillant.cz/" target="_blank" rel="noopener nofollow">
-    <img src="./img/brand-vaillant.svg" alt="Vaillant" width="170" height="60" loading="lazy">
-  </a>
-
-  <a href="https://www.bosch-homecomfort.com/global/en" target="_blank" rel="noopener nofollow">
-    <img src="./img/brand-junkers.svg" alt="Junkers" width="170" height="60" loading="lazy">
-  </a>
-
-  <a href="https://www.protherm.eu/" target="_blank" rel="noopener nofollow">
-    <img src="./img/brand-protherm.svg" alt="Protherm" width="170" height="60" loading="lazy">
-  </a>
-</div>
-
-
 
     <!-- SLUŽBY -->
     <section id="sluzby" class="section container" aria-labelledby="sluzby-title">
       <h2 id="sluzby-title">Nabídka služeb</h2>
       <div class="grid grid-2" role="list">
         <article class="card" role="listitem">
-          <div class="card-head">
-            <h3>Servis plynových kotlů</h3>
-          </div>
+          <div class="card-head"><h3>Servis plynových kotlů</h3></div>
           <p>Pravidelný servis, čištění a diagnostika plynových kotlů v Liberci a okolí.</p>
         </article>
         <article class="card" role="listitem">
-          <div class="card-head">
-            <h3>Revize a kontroly</h3>
-          </div>
+          <div class="card-head"><h3>Revize a kontroly</h3></div>
           <p>Provádím zákonné revize plynových zařízení, včetně vystavení protokolu.</p>
         </article>
         <article class="card" role="listitem">
-          <div class="card-head">
-            <h3>Montáž a výměna kotlů</h3>
-          </div>
+          <div class="card-head"><h3>Montáž a výměna kotlů</h3></div>
           <p>Demonáž starého spotřebiče, dodávka a odborná montáž nového plynového kotle.</p>
         </article>
         <article class="card" role="listitem">
-          <div class="card-head">
-            <h3>Poradenství a prodej</h3>
-          </div>
+          <div class="card-head"><h3>Poradenství a prodej</h3></div>
           <p>Pomohu s výběrem kotle, příslušenství i vhodného řešení pro váš byt či dům.</p>
         </article>
       </div>
@@ -208,9 +182,7 @@
       <h2 id="info-title">Informace</h2>
       <div class="grid grid-2">
         <div class="card">
-          <div class="card-head">
-            <h3>Proč zvolit místní plynservis</h3>
-          </div>
+          <div class="card-head"><h3>Proč zvolit místní plynservis</h3></div>
           <p>Rychlý dojezd v rámci Liberce, znalost lokality a dostupnost náhradních dílů pro oblíbené značky.</p>
           <ul class="checkcheck">
             <li><i class="fa-solid fa-circle-check"></i><span>Certifikace a praxe</span></li>
@@ -219,198 +191,143 @@
           </ul>
         </div>
         <div class="card">
-          <div class="card-head">
-            <h3>Časté dotazy</h3>
-          </div>
+          <div class="card-head"><h3>Časté dotazy</h3></div>
           <div>
-          <details>
-            <summary>Jak často dělat servis kotle?</summary>
-            <p>Jednou ročně před topnou sezónou; u revizí dle zákonných požadavků a typu zařízení.</p>
-          </details>
-          <details>
-            <summary>Děláte revizní protokoly?</summary>
-            <p>Ano, provádím zákonné revize plynových zařízení a vystavuji protokol.</p>
-          </details>
+            <details>
+              <summary>Jak často dělat servis kotle?</summary>
+              <p>Jednou ročně před topnou sezónou; u revizí dle zákonných požadavků a typu zařízení.</p>
+            </details>
+            <details>
+              <summary>Děláte revizní protokoly?</summary>
+              <p>Ano, provádím zákonné revize plynových zařízení a vystavuji protokol.</p>
+            </details>
           </div>
         </div>
       </div>
     </section>
 
     <!-- FORMULÁŘ -->
-<section id="formular" class="section container" aria-labelledby="form-title">
-  <h2 id="form-title">Kontaktní formulář</h2>
+    <section id="formular" class="section container" aria-labelledby="form-title">
+      <h2 id="form-title">Kontaktní formulář</h2>
 
-  <form id="contact-form"
-        method="POST"
-        action="https://formsubmit.co/0b9a6f8ec68bf7654cbe689e2060df14"
-        aria-describedby="gdpr-note"
-        novalidate>
+      <form id="contact-form" method="POST" action="https://formsubmit.co/0b9a6f8ec68bf7654cbe689e2060df14" aria-describedby="gdpr-note" novalidate>
+        <!-- HONEYPOT proti spamu -->
+        <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
 
-    <!-- HONEYPOT proti spamu -->
-    <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+        <!-- FormSubmit hidden -->
+        <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Poptávka z webu – Plynservis Liberec">
+        <input type="hidden" name="_template" value="table">
 
-    <!-- FormSubmit hidden -->
-    <input type="text" name="_honey" style="display:none">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="Poptávka z webu – Plynservis Liberec">
-    <input type="hidden" name="_template" value="table">
+        <div class="row">
+          <div>
+            <label for="jmeno">Jméno</label>
+            <input id="jmeno" name="jmeno" type="text" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="tel">Telefon</label>
+            <input id="tel" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required>
+          </div>
+        </div>
 
-    <div class="row">
-      <div>
-        <label for="jmeno">Jméno</label>
-        <input id="jmeno" name="jmeno" type="text" autocomplete="name" required>
-      </div>
-      <div>
-        <label for="tel">Telefon</label>
-        <input id="tel" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required>
-      </div>
-    </div>
+        <div class="row">
+          <div>
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div>
+            <label for="adresa">Adresa</label>
+            <input id="adresa" name="adresa" type="text" autocomplete="street-address" required>
+          </div>
+        </div>
 
-    <div class="row">
-      <div>
-        <label for="email">E-mail</label>
-        <input id="email" name="email" type="email" autocomplete="email" required>
-      </div>
-      <div>
-        <label for="adresa">Adresa</label>
-        <input id="adresa" name="adresa" type="text" autocomplete="street-address" required>
-      </div>
-    </div>
+        
 
-    <label for="zprava">Zpráva (popis problému / požadavku)</label>
-    <textarea id="zprava" name="zprava" rows="5" required></textarea>
+        <label for="zprava">Zpráva (popis problému / požadavku)</label>
+        <textarea id="zprava" name="zprava" rows="5" required></textarea>
 
-    <label class="consent" id="consent-label">
-      <input class="checkbox" type="checkbox" name="souhlas" required>
-      <span id="gdpr-note" class="muted">Souhlasím se zpracováním údajů pro vyřízení poptávky.</span>
-    </label>
+        <label class="consent" id="consent-label">
+          <input class="checkbox" type="checkbox" name="souhlas" required>
+          <span id="gdpr-note" class="muted">Souhlasím se zpracováním údajů pro vyřízení poptávky.</span>
+        </label>
 
+        <button class="btns space" type="submit">Odeslat</button>
 
-    <button class="btns space" type="submit">Odeslat</button>
-    
-    <!-- hlášky -->
-    <p id="form-success" class="muted" style="display:none;margin-top:10px" aria-live="polite">
-      ✅ Děkujeme, zpráva byla úspěšně odeslána.
-    </p>
-    <p id="form-error" class="muted" style="display:none;margin-top:10px;color:#b00020" aria-live="assertive">
-      ❌ Něco se pokazilo. Zkuste to prosím znovu nebo volejte
-      <a href="tel:+420603212893">603&nbsp;212&nbsp;893</a>.
-    </p>
+        <!-- hlášky -->
+        <p id="form-success" class="muted" style="display:none;margin-top:10px" aria-live="polite">✅ Děkujeme, zpráva byla úspěšně odeslána.</p>
+        <p id="form-error" class="muted" style="display:none;margin-top:10px;color:#b00020" aria-live="assertive">
+          ❌ Něco se pokazilo. Zkuste to prosím znovu nebo volejte
+          <a href="tel:+420603212893">603&nbsp;212&nbsp;893</a>.
+        </p>
 
-
-    <p class="muted">Raději volat? <a href="tel:+420603212893">603 212 893</a></p>
-  </form>
-</section>
+        <p class="muted">Raději volat? <a href="tel:+420603212893">603 212 893</a></p>
+      </form>
+    </section>
 
     <!-- MAPA -->
     <section id="mapa" class="section container" aria-labelledby="mapa-title">
       <h2 id="mapa-title">Kde působím</h2>
       <p class="muted">Působím na území města Liberec a přijíždím také do blízkých obcí v okolí.</p>
       <div class="map-wrap" id="map-placeholder">
-        <div class="map-skel">
-          <span>Načítám mapu…</span>
-        </div>
+        <div class="map-skel"><span>Načítám mapu…</span></div>
       </div>
     </section>
   </main>
 
   <!-- FOOTER / NAP -->
-<footer role="contentinfo">
+  <footer role="contentinfo">
     <div class="container">
-        <div class="grid grid-2">
-            <section aria-labelledby="kontakt-title">
-                <h2 id="kontakt-title">Kontakt</h2>
-                <address>
-                    <strong>Vladimír Řehák – Plynservis Liberec</strong><br>
-                    IČO: 65832800<br>
-                    Telefon: <a href="tel:+420603212893">
-                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                        <span class="sr-only">Telefon:</span>
-                        603&nbsp;212&nbsp;893
-                    </a><br>
-                    E-mail: <a href="mailto:rehakson@seznam.cz">rehakson@seznam.cz</a>
-                </address>
-            </section>
-            <section aria-labelledby="adresa-title">
-                <h2 id="adresa-title">Adresa provozovny</h2>
-                <p>Barvířská 128/21, 460 07 Liberec III-Jeřáb</p>
-                <p class="muted">Otevírací doba dle domluvy / výjezdy v regionu Liberec.</p>
-            </section>
-        </div>
-        <p class="muted">
-            © 2025 Vladimír Řehák – Plynservis Liberec •
-            <a href="./obchodni-podminky.html">Obchodní podmínky</a> •
-            <a href="./gdpr.html">GDPR</a>
-        </p>
+      <div class="grid grid-2">
+        <section aria-labelledby="kontakt-title">
+          <h2 id="kontakt-title">Kontakt</h2>
+          <address>
+            <strong>Vladimír Řehák – Plynservis Liberec</strong><br>
+            IČO: 65832800<br>
+            Telefon: <a href="tel:+420603212893">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <span class="sr-only">Telefon:</span>
+              603&nbsp;212&nbsp;893
+            </a><br>
+            E-mail: <a href="mailto:rehakson@seznam.cz">rehakson@seznam.cz</a>
+          </address>
+        </section>
+        <section aria-labelledby="adresa-title">
+          <h2 id="adresa-title">Adresa provozovny</h2>
+          <p>Barvířská 128/21, 460 07 Liberec III-Jeřáb</p>
+          <p class="muted">Otevírací doba dle domluvy / výjezdy v regionu Liberec.</p>
+        </section>
+      </div>
+      <p class="muted">
+        © 2025 Vladimír Řehák – Plynservis Liberec •
+        <a href="./obchodni-podminky.html">Obchodní podmínky</a> •
+        <a href="./gdpr.html">GDPR</a>
+      </p>
     </div>
-</footer>
+  </footer>
+</div> <!-- /.page -->
 
   <!-- JSON-LD: LocalBusiness + FAQ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HVACBusiness",
-    "name": "Plynservis Liberec – Vladimír Řehák",
-    "image": "https://mirstep019.github.io/PlynServis/og-preview.jpg",
-    "url": "https://mirstep019.github.io/PlynServis/",
-    "telephone": "+420603212893",
-    "email": "rehakson@seznam.cz",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Barvířská 128/21",
-      "addressLocality": "Liberec",
-      "postalCode": "46007",
-      "addressCountry": "CZ"
-    },
-    "areaServed": ["Liberec","Vratislavice","Rochlice","Jablonec nad Nisou"],
-    "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      "opens": "08:00",
-      "closes": "18:00"
-    }],
-    "priceRange": "CZK",
-    "makesOffer": [{
-      "@type": "Offer",
-      "itemOffered": {"@type":"Service","name":"Servis plynových kotlů","areaServed":"Liberec"},
-      "priceCurrency":"CZK"
-    },{
-      "@type":"Offer",
-      "itemOffered":{"@type":"Service","name":"Revize plynových zařízení s protokolem","areaServed":"Liberec"},
-      "priceCurrency":"CZK"
-    },{
-      "@type":"Offer",
-      "itemOffered":{"@type":"Service","name":"Montáž a výměna kotlů","areaServed":"Liberec"},
-      "priceCurrency":"CZK"
-    }]
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HVACBusiness","name":"Plynservis Liberec – Vladimír Řehák","image":"https://mirstep019.github.io/PlynServis/og-preview.jpg","url":"https://mirstep019.github.io/PlynServis/","telephone":"+420603212893","email":"rehakson@seznam.cz","address":{"@type":"PostalAddress","streetAddress":"Barvířská 128/21","addressLocality":"Liberec","postalCode":"46007","addressCountry":"CZ"},"areaServed":["Liberec","Vratislavice","Rochlice","Jablonec nad Nisou"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"}],"priceRange":"CZK","makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Servis plynových kotlů","areaServed":"Liberec"},"priceCurrency":"CZK"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Revize plynových zařízení s protokolem","areaServed":"Liberec"},"priceCurrency":"CZK"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Montáž a výměna kotlů","areaServed":"Liberec"},"priceCurrency":"CZK"}]}</script>
 
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Jak často dělat servis kotle?","acceptedAnswer":{"@type":"Answer","text":"Doporučujeme jednou ročně před topnou sezónou. U revizí postupujte podle zákonných požadavků a typu zařízení."}},
-      {"@type":"Question","name":"Děláte revizní protokoly?","acceptedAnswer":{"@type":"Answer","text":"Ano, provádíme zákonné revize plynových zařízení a vystavujeme protokol."}}
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Jak často dělat servis kotle?","acceptedAnswer":{"@type":"Answer","text":"Doporučujeme jednou ročně před topnou sezónou. U revizí postupujte podle zákonných požadavků a typu zařízení."}},{"@type":"Question","name":"Děláte revizní protokoly?","acceptedAnswer":{"@type":"Answer","text":"Ano, provádíme zákonné revize plynových zařízení a vystavujeme protokol."}}]}</script>
 
-  <!-- JS: hamburger + smooth scroll (bez animací) -->
+  <!-- JS: hamburger + smooth scroll -->
   <script>
-  const btn = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav');
-  btn.addEventListener('click', () => {
-    nav.classList.toggle('is-open');
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!expanded));
-  });
-  document.querySelectorAll('.nav a').forEach(a =>
-    a.addEventListener('click', () => nav.classList.remove('is-open'))
-  );
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        nav.classList.toggle('is-open');
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+      });
+    }
+    document.querySelectorAll('.nav a').forEach(a =>
+      a.addEventListener('click', () => nav.classList.remove('is-open'))
+    );
 
-    // Smooth scroll
+    // Smooth scroll pro interní odkazy (#...)
     document.querySelectorAll('a[href^="#"]').forEach((a) => {
       a.addEventListener('click', (e) => {
         const id = a.getAttribute('href').slice(1);
@@ -418,229 +335,224 @@
         if (el) {
           e.preventDefault();
           el.scrollIntoView({ behavior: 'smooth' });
-          // zavřít menu po kliknutí na mobilu
           if (nav.classList.contains('is-open')) {
             nav.classList.remove('is-open');
-            btn.setAttribute('aria-expanded', 'false');
+            btn && btn.setAttribute('aria-expanded', 'false');
           }
         }
       });
     });
-
-
-
-
-
-    // smooth scroll na top při kliknutí na logo
-document.querySelector('.brand')?.addEventListener('click', (e)=>{
-  // pokud je to homepage (neexterní link)
-  if(location.pathname.endsWith('/') || location.pathname.endsWith('index.html')){
-    e.preventDefault();
-    window.scrollTo({
-      top:0,
-      behavior:'smooth'
-    });
-    // zavři menu na mobilu pokud je otevřený
-    const nav = document.querySelector('.nav');
-    if(nav && nav.classList.contains('is-open')){
-      nav.classList.remove('is-open');
-      document.querySelector('.nav-toggle')?.setAttribute('aria-expanded','false');
-    }
-  }
-});
-
-    
   </script>
 
+  <script>
+    // HERO CAROUSEL (fade)
+    const slides = Array.from(document.querySelectorAll('.hero-slide'));
+    const dots = Array.from(document.querySelectorAll('.hero-dots .dot'));
+    if (slides.length && dots.length) {
+      let idx = 0;
+      const changeTo = (i) => {
+        slides[idx].classList.remove('is-active');
+        dots[idx].classList.remove('is-active');
+        idx = i;
+        slides[idx].classList.add('is-active');
+        dots[idx].classList.add('is-active');
+      };
+      let timer = setInterval(() => changeTo((idx + 1) % slides.length), 5000);
+      dots.forEach((d, i) => {
+        d.addEventListener('click', () => {
+          changeTo(i);
+          clearInterval(timer);
+          timer = setInterval(() => changeTo((idx + 1) % slides.length), 5000);
+        });
+      });
+    }
+  </script>
 
   <script>
-  // HERO CAROUSEL (fade)
-  const slides = Array.from(document.querySelectorAll('.hero-slide'));
-  const dots = Array.from(document.querySelectorAll('.hero-dots .dot'));
-  if (slides.length && dots.length) {
-    let idx = 0;
-    const changeTo = (i) => {
-      slides[idx].classList.remove('is-active');
-      dots[idx].classList.remove('is-active');
-      idx = i;
-      slides[idx].classList.add('is-active');
-      dots[idx].classList.add('is-active');
-    };
-    let timer = setInterval(() => changeTo((idx + 1) % slides.length), 5000);
-    dots.forEach((d, i) => {
-      d.addEventListener('click', () => {
-        changeTo(i);
-        clearInterval(timer);
-        timer = setInterval(() => changeTo((idx + 1) % slides.length), 5000);
-      });
-    });
-  }
-</script>
+    // VALIDACE FORMU + odeslání přes fetch
+    (function(){
+      const form  = document.getElementById('contact-form');
+      if(!form) return;
 
-<script>
-(function(){
-  const form  = document.getElementById('contact-form');
-  if(!form) return;
+      const btn   = form.querySelector('button[type="submit"]');
+      const okEl  = document.getElementById('form-success');
+      const errEl = document.getElementById('form-error');
 
-  const btn   = form.querySelector('button[type="submit"]');
-  const okEl  = document.getElementById('form-success');
-  const errEl = document.getElementById('form-error');
+      const consent      = form.querySelector('input[name="souhlas"]');
+      const consentLabel = document.getElementById('consent-label') || consent.closest('label.consent');
+      const gdprNote     = document.getElementById('gdpr-note');
+      if (gdprNote && !gdprNote.dataset.default) gdprNote.dataset.default = gdprNote.textContent;
 
-  const consent      = form.querySelector('input[name="souhlas"]');
-  const consentLabel = document.getElementById('consent-label') || consent.closest('label.consent');
-  const gdprNote     = document.getElementById('gdpr-note');
-  if (gdprNote && !gdprNote.dataset.default) gdprNote.dataset.default = gdprNote.textContent;
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+      const phoneDigits = (v) => v.replace(/[^\d+]/g,'').trim();
 
-  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-  const phoneDigits = (v) => v.replace(/[^\d+]/g,'').trim();
-
-  function setErr(el, has){
-    el.classList.toggle('is-invalid', !!has);
-    el.setAttribute('aria-invalid', has ? 'true' : 'false');
-  }
-  function setConsentErr(has){
-    consent.classList.toggle('is-invalid', !!has);
-    if (consentLabel) consentLabel.classList.toggle('consent-error', !!has);
-    if (gdprNote) gdprNote.textContent = has
-      ? 'Zaškrtněte prosím souhlas se zpracováním údajů.'
-      : (gdprNote.dataset.default || gdprNote.textContent);
-  }
-
-  function validate(){
-    let valid = true;
-
-    // všechna required pole (kromě checkboxu souhlas – ten řešíme zvlášť)
-    const requiredFields = Array.from(form.querySelectorAll('input[required], textarea[required], select[required]'))
-      .filter(el => !(el.type === 'checkbox' && el.name === 'souhlas'));
-
-    requiredFields.forEach(el=>{
-      const empty = !el.value.trim();
-      setErr(el, empty);
-      if (empty) valid = false;
-    });
-
-    // speciální pravidla
-    const tel = form.querySelector('#tel');
-    if (tel && tel.value.trim()){
-      const d = phoneDigits(tel.value);
-      const bad = d.replace(/\D/g,'').length < 9;
-      setErr(tel, bad);
-      if (bad) valid = false;
-    }
-
-    const email = form.querySelector('#email');
-    if (email && email.value.trim()){
-      const bad = !emailRe.test(email.value.trim());
-      setErr(email, bad);
-      if (bad) valid = false;
-    }
-
-    // souhlas
-    const badConsent = consent ? !consent.checked : false;
-    setConsentErr(badConsent);
-    if (badConsent) valid = false;
-
-    // hláška
-    if(!valid){
-      if (errEl){
-        errEl.style.display = 'block';
-        errEl.textContent = '❌ Vyplňte prosím zvýrazněné položky.';
+      function setErr(el, has){
+        el.classList.toggle('is-invalid', !!has);
+        el.setAttribute('aria-invalid', has ? 'true' : 'false');
       }
-    }else{
-      if (errEl) errEl.style.display = 'none';
-    }
-    return valid;
-  }
-
-  // live odstraňování chyb při psaní
-  form.addEventListener('input', (e)=>{
-    const t = e.target;
-    if (t.matches('input, textarea')){
-      if (t.required && t.value.trim()) setErr(t, false);
-      if (t.id === 'email' && t.value.trim()) setErr(t, !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(t.value.trim()));
-      if (t.id === 'tel' && t.value.trim()){
-        const d = t.value.replace(/[^\d+]/g,'');
-        setErr(t, d.replace(/\D/g,'').length < 9);
+      function setConsentErr(has){
+        consent.classList.toggle('is-invalid', !!has);
+        if (consentLabel) consentLabel.classList.toggle('consent-error', !!has);
+        if (gdprNote) gdprNote.textContent = has
+          ? 'Zaškrtněte prosím souhlas se zpracováním údajů.'
+          : (gdprNote.dataset.default || gdprNote.textContent);
       }
-    }
-  });
-  consent && consent.addEventListener('change', ()=> setConsentErr(!consent.checked));
 
-  async function sendForm(){
-    if (okEl) okEl.style.display  = 'none';
-    if (errEl) errEl.style.display = 'none';
+      function validate(){
+        let valid = true;
 
-    btn.disabled = true;
-    const originalTxt = btn.textContent;
-    btn.textContent = 'Odesílám…';
+        const requiredFields = Array.from(form.querySelectorAll('input[required], textarea[required], select[required]'))
+          .filter(el => !(el.type === 'checkbox' && el.name === 'souhlas'));
 
-    try{
-      const res = await fetch(form.action, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
-      });
-      if(res.ok){
-        form.reset();
-        form.querySelectorAll('.is-invalid').forEach(el=>el.classList.remove('is-invalid'));
-        setConsentErr(false);
-        if (okEl){
-          okEl.style.display = 'block';
-          okEl.scrollIntoView({behavior:'smooth', block:'center'});
+        requiredFields.forEach(el=>{
+          const empty = !el.value.trim();
+          setErr(el, empty);
+          if (empty) valid = false;
+        });
+
+        const tel = form.querySelector('#tel');
+        if (tel && tel.value.trim()){
+          const d = phoneDigits(tel.value);
+          const bad = d.replace(/\D/g,'').length < 9;
+          setErr(tel, bad);
+          if (bad) valid = false;
         }
-      }else{
-        if (errEl){
-          errEl.style.display = 'block';
-          errEl.scrollIntoView({behavior:'smooth', block:'center'});
+
+        const email = form.querySelector('#email');
+        if (email && email.value.trim()){
+          const bad = !emailRe.test(email.value.trim());
+          setErr(email, bad);
+          if (bad) valid = false;
+        }
+
+        const badConsent = consent ? !consent.checked : false;
+        setConsentErr(badConsent);
+        if (badConsent) valid = false;
+
+        if(!valid){
+          if (errEl){
+            errEl.style.display = 'block';
+            errEl.textContent = '❌ Vyplňte prosím zvýrazněné položky.';
+          }
+        }else{
+          if (errEl) errEl.style.display = 'none';
+        }
+        return valid;
+      }
+
+      form.addEventListener('input', (e)=>{
+        const t = e.target;
+        if (t.matches('input, textarea')){
+          if (t.required && t.value.trim()) setErr(t, false);
+          if (t.id === 'email' && t.value.trim()) setErr(t, !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(t.value.trim()));
+          if (t.id === 'tel' && t.value.trim()){
+            const d = t.value.replace(/[^\d+]/g,'');
+            setErr(t, d.replace(/\D/g,'').length < 9);
+          }
+        }
+      });
+      consent && consent.addEventListener('change', ()=> setConsentErr(!consent.checked));
+
+      async function sendForm(){
+        if (okEl) okEl.style.display  = 'none';
+        if (errEl) errEl.style.display = 'none';
+
+        btn.disabled = true;
+        const originalTxt = btn.textContent;
+        btn.textContent = 'Odesílám…';
+
+        try{
+          const res = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form)
+          });
+          if(res.ok){
+            form.reset();
+            form.querySelectorAll('.is-invalid').forEach(el=>el.classList.remove('is-invalid'));
+            setConsentErr(false);
+            if (okEl){
+              okEl.style.display = 'block';
+              okEl.scrollIntoView({behavior:'smooth', block:'center'});
+            }
+          }else{
+            if (errEl){
+              errEl.style.display = 'block';
+              errEl.scrollIntoView({behavior:'smooth', block:'center'});
+            }
+          }
+        }catch(e){
+          if (errEl){
+            errEl.style.display = 'block';
+            errEl.scrollIntoView({behavior:'smooth', block:'center'});
+          }
+        }finally{
+          btn.disabled = false;
+          btn.textContent = originalTxt;
         }
       }
-    }catch(e){
-      if (errEl){
-        errEl.style.display = 'block';
-        errEl.scrollIntoView({behavior:'smooth', block:'center'});
-      }
-    }finally{
-      btn.disabled = false;
-      btn.textContent = originalTxt;
-    }
-  }
 
-  form.addEventListener('submit', (e)=>{
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        if (validate()) sendForm();
+        else {
+          const firstBad = form.querySelector('.is-invalid, input[name="souhlas"]:not(:checked)');
+          if(firstBad) firstBad.focus();
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    // Lazy-load mapy
+    document.addEventListener('DOMContentLoaded',()=>{
+      const ph = document.getElementById('map-placeholder');
+      if(!ph) return;
+
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            ph.innerHTML = `
+              <iframe
+                title="Mapa – Plynservis Liberec"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1784.3372500560404!2d15.052244592580072!3d50.767528992051275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47093698e3e964a9%3A0x4b06de8c3eca2a5!2sPLYN%20-%20SERVIS%20CZ%2C%20s.r.o.!5e0!3m2!1scs!2scz!4v1761997051879!5m2!1scs!2scz"
+                style="border:0;width:100%;height:100%"></iframe>`;
+            obs.disconnect();
+          }
+        });
+      });
+      obs.observe(ph);
+    });
+  </script>
+  <script>
+  // Force scroll-to-top na klik loga (bez spoléhání na hash)
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a.brand');
+    if (!link) return;
+
     e.preventDefault();
-    if (validate()) sendForm();
-    else {
-      const firstBad = form.querySelector('.is-invalid, input[name="souhlas"]:not(:checked)');
-      if(firstBad) firstBad.focus();
+
+    // zavřít mobilní menu, pokud je otevřené
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+    if (nav && nav.classList.contains('is-open')) {
+      nav.classList.remove('is-open');
+      navToggle && navToggle.setAttribute('aria-expanded', 'false');
     }
-  });
-})();
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded',()=>{
-    const ph = document.getElementById('map-placeholder');
-    if(!ph) return;
 
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          ph.innerHTML = `
-            <iframe
-              title="Mapa – Plynservis Liberec"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1784.3372500560404!2d15.052244592580072!3d50.767528992051275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47093698e3e964a9%3A0x4b06de8c3eca2a5!2sPLYN%20-%20SERVIS%20CZ%2C%20s.r.o.!5e0!3m2!1scs!2scz!4v1761997051879!5m2!1scs!2scz"
-              style="border:0;width:100%;height:100%">
-            </iframe>`;
-          obs.disconnect();
-        }
-      });
-    })
+    // odstranit #top z URL, ať ti nevisí hash
+    if (location.hash) {
+      const clean = location.pathname + location.search;
+      history.replaceState(null, '', clean);
+    }
 
-    obs.observe(ph);
+    // samotný smooth scroll na úplný vršek stránky
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
 
-</body>
 </div>
-
+</body>
 </html>
