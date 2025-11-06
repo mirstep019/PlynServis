@@ -45,10 +45,12 @@
   <!-- HEADER / NAVBAR -->
   <header class="site-header" aria-label="Hlavní navigace">
   <div class="container nav-wrap">
-    <!-- Značka --> 
+    <!-- Značka -->
     <a class="brand" href="./" aria-label="Plynservis Liberec Vladimír Řehák">
-      <img src="./img/ps-logo.svg" alt="Plynservis Liberec – Vladimír Řehák" width="180" height="auto">
+      <img src="./img/ps-logo.svg" data-src-default="./img/ps-logo.svg" data-src-hover="./img/ps-logo-white.svg"
+        alt="Plynservis Liberec – Vladimír Řehák" width="180">
     </a>
+
 
 
 
@@ -414,6 +416,26 @@
     });
 
 
+
+
+
+    // smooth scroll na top při kliknutí na logo
+document.querySelector('.brand')?.addEventListener('click', (e)=>{
+  // pokud je to homepage (neexterní link)
+  if(location.pathname.endsWith('/') || location.pathname.endsWith('index.html')){
+    e.preventDefault();
+    window.scrollTo({
+      top:0,
+      behavior:'smooth'
+    });
+    // zavři menu na mobilu pokud je otevřený
+    const nav = document.querySelector('.nav');
+    if(nav && nav.classList.contains('is-open')){
+      nav.classList.remove('is-open');
+      document.querySelector('.nav-toggle')?.setAttribute('aria-expanded','false');
+    }
+  }
+});
 
     
   </script>

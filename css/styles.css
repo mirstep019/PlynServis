@@ -5,10 +5,10 @@
 
 
 :root {
-  --bg: #ffffff;
+  --bg: #ececec;
   --ink: #111111;
   --ink-weak: #666666;
-  --brand:  #e9be11; 
+  --brand:  #f4c715; 
   /* --brand:  #c8a20e; */
   --border: #eeeeee;
 }
@@ -27,9 +27,26 @@ body {
   margin: 0;
   background-color: var(--bg);
   color: var(--ink);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  font-family: 'Inter',system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
   line-height: 1.6;
 }
+
+
+
+h2{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+}
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+#informace h2, h3, #formular h2, #mapa h2, #mapa p{
+  text-align: center;
+}
+
+
 
 a {
   color: inherit;
@@ -41,6 +58,19 @@ img {
   height: auto;
   display: block;
 }
+
+.brand:hover img {
+  content: url("img/ps-logo-white.svg");
+}
+.brand img {
+  transition: opacity .25s ease;
+}
+
+.brand:hover img {
+  opacity:1;
+}
+
+
 
 .container {
   max-width: 1120px;
@@ -124,11 +154,27 @@ img {
 }
 
 .nav-item a:hover,
-.nav-item a:focus-visible,
-.btns:hover,
-.btn:hover {
+.nav-item a:focus-visible {
   background-color: #ebcc01;
 }
+
+.btns, .btn {
+  transition: transform .5s ease-in-out, background-color .5s ease, box-shadow .5s ease;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+.btns:hover, .btn:hover {
+  color: #111111;
+  transform: translateY(-1px);
+  background-color: #ffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+.btns:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0,0,0,.10);
+}
+
 
 /* Telefon – stejné jako ostatní odkazy, jen zvýrazněný „pill“ */
 /* Telefon – vždy viditelný „pill“ */
@@ -149,7 +195,7 @@ img {
   margin-bottom: 15px;
 }
 
-.nav-wrap{ display:flex; align-items:center; justify-content:space-between; min-height:67px; }
+.nav-wrap{ display:flex; align-items:center; justify-content:space-between; min-height:80px; }
 .nav{ display:block; }
 .nav-toggle{ display:none; }
 
@@ -297,6 +343,11 @@ ul {
   border-radius: 12px;
   padding: 0;              /* už se nepadá na card – padá až content */
   background: #fff;
+  transition: ease-in-out 0.3s;
+}
+.card:hover{
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
 }
 
 .card > p,
