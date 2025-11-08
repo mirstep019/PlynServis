@@ -948,14 +948,6 @@ html {
   will-change: opacity, transform;
 }
 
-/* 6) iOS blur fallback na mobilech (když by dělal artefakty) */
-@media (max-width: 768px){
-  .hero-blur {
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-    background: rgba(0,0,0,0.18);
-  }
-}
 
 /* 7) Žádný auto-zoom vstupů (nepřekopne layout) */
 input, textarea, select { font-size: 16px; }
@@ -992,4 +984,21 @@ a, button {
   backface-visibility: hidden;
   transform: translateZ(0);
   will-change: opacity;
+}
+
+/* MOBILE: fix aby nav-phone NEZUSTAL bílej po tapu */
+@media (hover:none){
+  .nav-phone:active {
+    background-color: #fff;
+    color:#111;
+  }
+  .nav-phone {
+    transition: background-color .25s ease, color .25s ease;
+  }
+
+  /* tady se to vrací zpět do původního stavu PO zrušení active */
+  .nav-phone:not(:active) {
+    background-color: var(--ink);
+    color:#fff;
+  }
 }
