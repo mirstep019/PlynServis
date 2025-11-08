@@ -47,7 +47,7 @@
       <!-- Značka: scrolluje na začátek -->
       <a class="brand" href="#top" aria-label="Plynservis Liberec Vladimír Řehák">
         <img class="logo-dark" src="./img/ps-logo.svg" alt="Plynservis Liberec – Vladimír Řehák" width="180" height="auto">
-        <img class="logo-white" src="./img/ps-logo-white.svg" alt="" width="180" height="auto" aria-hidden="true">
+        <img class="logo-white" src="./img/ps-logo-yellow.svg" alt="" width="180" height="auto" aria-hidden="true">
       </a>
 
       <!-- Navigace (kolapsuje do dropdownu) -->
@@ -129,11 +129,11 @@
       <a href="https://www.vaillant.cz/" target="_blank" rel="noopener nofollow">
         <img src="./img/brand-vaillant.svg" alt="Vaillant" width="170" height="60" loading="lazy">
       </a>
-      <a href="https://www.bosch-homecomfort.com/global/en" target="_blank" rel="noopener nofollow">
-        <img src="./img/brand-junkers.svg" alt="Junkers" width="170" height="60" loading="lazy">
-      </a>
       <a href="https://www.protherm.eu/" target="_blank" rel="noopener nofollow">
         <img src="./img/brand-protherm.svg" alt="Protherm" width="170" height="60" loading="lazy">
+      </a>
+      <a href="https://www.bosch-homecomfort.com/global/en" target="_blank" rel="noopener nofollow">
+        <img src="./img/brand-junkers.svg" alt="Junkers" width="170" height="60" loading="lazy">
       </a>
     </div>
 
@@ -298,12 +298,13 @@
           <p class="muted">Otevírací doba dle domluvy / výjezdy v regionu Liberec.</p>
         </section>
       </div>
-      <p class="muted">
+      <p class="footer-bottom">
         © 2025 Vladimír Řehák – Plynservis Liberec •
         <a href="./obchodni-podminky.html">Obchodní podmínky</a> •
         <a href="./gdpr.html">GDPR</a>
       </p>
-    </div>
+      
+      </div>
   </footer>
 </div> <!-- /.page -->
 
@@ -343,6 +344,31 @@
       });
     });
   </script>
+  <script>
+(function(){
+  const header = document.querySelector('.site-header');
+
+  function applyScrollPadding(){
+    const h = header ? header.offsetHeight : 72;
+    document.documentElement.style.scrollPaddingTop = (h + 8) + 'px';
+  }
+
+  // inicializace + reakce na změny
+  document.addEventListener('DOMContentLoaded', applyScrollPadding);
+  window.addEventListener('resize', applyScrollPadding, { passive:true });
+  window.addEventListener('orientationchange', applyScrollPadding);
+
+  // když přepínáš mobilní navigaci, může se výška změnit – dorovnáme
+  const navToggle = document.querySelector('.nav-toggle');
+  if(navToggle){
+    navToggle.addEventListener('click', () => {
+      // počkej chvilku, až se DOM přerenderuje
+      setTimeout(applyScrollPadding, 50);
+    });
+  }
+})();
+</script>
+
 
   <script>
     // HERO CAROUSEL (fade)

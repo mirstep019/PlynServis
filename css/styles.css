@@ -5,7 +5,8 @@
 
 
 :root {
-  --bg: #fafafa;
+  /* --bg: #fafafa; */
+  --bg: #E8E7E7;
   --ink: #111111;
   --ink-weak: #666666;
   --brand:  #f4c715; 
@@ -199,18 +200,13 @@ a, button { -webkit-tap-highlight-color: rgba(0,0,0,.15); }
   padding:10px 12px;
   background-color:var(--ink);
   color:#fff;
+  transition: transform .5s ease-in-out, background-color .5s ease;
 }
 /* .nav-phone:hover{ color:var(--brand); } */
 
-.nav-phone{
-  position:relative;
-  overflow:hidden; 
-
-  transition:color .35s cubic-bezier(.4,0,.2,1);
-}
 
 /* "vlna" */
-.nav-phone::before{
+/* .nav-phone::before{
   content:"";
   position:absolute;
   left:0; right:0; bottom:0;
@@ -219,7 +215,7 @@ a, button { -webkit-tap-highlight-color: rgba(0,0,0,.15); }
   transform:translateY(100%);
   transition:transform .35s cubic-bezier(.4,0,.2,1);
   z-index:0;
-}
+} */
 
 .nav-phone:hover::before{
   transform:translateY(0%);
@@ -232,6 +228,7 @@ a, button { -webkit-tap-highlight-color: rgba(0,0,0,.15); }
 
 .nav-phone:hover{
   color:#111;
+  background-color: #fff;
 }
 
 
@@ -869,14 +866,12 @@ position: relative;
   /* tlačítka */
   .btns:hover, .btn:hover {
     color:#111111;
-    transform: translateY(-1px);
     background-color:#fff;
     box-shadow:0 4px 12px rgba(0,0,0,.15);
   }
 
   /* nav-phone „vlna“ + barva textu */
   .nav-phone:hover { color:#111; }
-  .nav-phone:hover::before { transform: translateY(0%); }
 }
 
 /* === MOBILE/TOUCH: žádný persistent hover, jen krátký :active === */
@@ -938,4 +933,71 @@ body {
   input, textarea {
     font-size: 16px; /* 16px = žádný zoom na iOS */
   }
+}
+
+
+/* ==== Anchor offset pod sticky headerem ==== */
+:root{ --header-offset: 72px; }           /* default */
+@media (min-width:1121px){
+  :root{ --header-offset: 80px; }         /* když je header vyšší na desktopu */
+}
+
+/* Pro nativní kotvy a scrollIntoView */
+html{
+  scroll-padding-top: calc(var(--header-offset) + 8px);
+}
+
+/* Jistota pro skok na konkrétní prvky se zadanym id */
+section[id], h2[id]{
+  scroll-margin-top: calc(var(--header-offset) + 8px);
+}
+
+
+
+/* ==== Mobile & iOS stability (safe) ==== */
+
+/* 1) Stabilnější výška viewportu (adresní lišta v Safari) */
+@supports (-webkit-touch-callout: none) {
+  html { height: -webkit-fill-available; }
+  body { min-height: 100dvh; min-height: -webkit-fill-available; }
+}
+
+/* 2) Menší „gumové“ přetažení (bounce) nahoře/dole.
+      iOS 16+ to respektuje, starší verze ignorují (nevadí). */
+html, body {
+  overscroll-behavior-y: contain;   /* žádné navazující „tažení“ parentu */
+  overflow-x: hidden;               /* jistota proti horizontálnímu posunu */
+  -webkit-overflow-scrolling: touch;/* plynulý kinetický scroll v iOS */
+}
+
+/* 3) Bez auto-zoomu při fokusu do inputu (iOS) */
+input, textarea, select {
+  font-size: 16px;
+}
+
+/* 4) Bez „lepivého“ tap highlightu (jemné, ale neagresivní) */
+a, button {
+  -webkit-tap-highlight-color: rgba(0,0,0,.12);
+  touch-action: manipulation;
+}
+
+/* 5) Sticky header offset pro kotvy (aby nebyly překryté) — navazuje na tvoje proměnné */
+:root { --header-offset: 72px; }
+@media (min-width:1121px){ :root { --header-offset: 80px; } }
+
+html { scroll-padding-top: calc(var(--header-offset) + 8px); }
+section[id], h2[id] { scroll-margin-top: calc(var(--header-offset) + 8px); }
+
+/* 6) „Page“ wrapper: pomůže, aby se stránka nescvrkávala a nevyjela pod footer
+   (použij, pokud máš <div class="page"> okolo <header>+<main>+<footer>) */
+.page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+footer { margin-top: auto; }
+
+/* 7) iOS safe-area (notch) – neškodné, jen přidá padding pokud je třeba */
+.site-header {
+  padding-top: max(0px, env(safe-area-inset-top));
 }
