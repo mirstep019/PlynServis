@@ -915,89 +915,53 @@ input[type="checkbox"].is-invalid{ outline:2px solid #b00020; outline-offset:2px
 } */
 
 
+/* ==== iOS „bílý pruh“ & scroll – SAFE verze pro sticky navbar ==== */
 
-/* ==== iOS quality of life mini pack ==== */
+/* 1) Barva pozadí na kořeni (žádné prosvítání) */
+html, body { background-color: var(--bg); }
 
-/* 1) iOS má rád vlastní smooth scroll, tak mu tohle pomůže */
-html, body {
-  -webkit-overflow-scrolling: touch;
+/* 2) Místo overlaye jen „polštář“ ve spodní safe-area
+      => nic nezasahuje do vrstvení, sticky zůstává ok */
+@supports (padding: max(0px)) {
+  body { padding-bottom: max(env(safe-area-inset-bottom), 0px); }
 }
 
-/* 2) zabrání přetahování obsahu pod koncem stránky při setrvačce */
-body {
-  overscroll-behavior-y: contain;
+/* 3) Omez „gumový“ overscroll jen na dokument (ne na body) */
+html {
+  overscroll-behavior-y: contain;  /* iOS 16+; starší ignorují */
+  overflow-x: hidden;
 }
 
-/* 3) keyboard safe — ať textarea/input nevyhodí layout */
+/* 4) Stabilnější viewport výška bez rozbití sticky */
 @supports (-webkit-touch-callout: none) {
-  input, textarea {
-    font-size: 16px; /* 16px = žádný zoom na iOS */
+  html { height: -webkit-fill-available; }
+  body { min-height: 100dvh; }  /* bez transform/overflow na rodičích */
+}
+
+/* 5) Zklidnění kompozice u hrdiny (bez dopadu na header/sticky) */
+.hero-bg,
+.hero-slide,
+.hero-scrim,
+.hero-blur {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: opacity, transform;
+}
+
+/* 6) iOS blur fallback na mobilech (když by dělal artefakty) */
+@media (max-width: 768px){
+  .hero-blur {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(0,0,0,0.18);
   }
 }
 
+/* 7) Žádný auto-zoom vstupů (nepřekopne layout) */
+input, textarea, select { font-size: 16px; }
 
-/* ==== Anchor offset pod sticky headerem ==== */
-:root{ --header-offset: 72px; }           /* default */
-@media (min-width:1121px){
-  :root{ --header-offset: 80px; }         /* když je header vyšší na desktopu */
-}
-
-/* Pro nativní kotvy a scrollIntoView */
-html{
-  scroll-padding-top: calc(var(--header-offset) + 8px);
-}
-
-/* Jistota pro skok na konkrétní prvky se zadanym id */
-section[id], h2[id]{
-  scroll-margin-top: calc(var(--header-offset) + 8px);
-}
-
-
-
-/* ==== Mobile & iOS stability (safe) ==== */
-
-/* 1) Stabilnější výška viewportu (adresní lišta v Safari) */
-@supports (-webkit-touch-callout: none) {
-  html { height: -webkit-fill-available; }
-  body { min-height: 100dvh; min-height: -webkit-fill-available; }
-}
-
-/* 2) Menší „gumové“ přetažení (bounce) nahoře/dole.
-      iOS 16+ to respektuje, starší verze ignorují (nevadí). */
-html, body {
-  overscroll-behavior-y: contain;   /* žádné navazující „tažení“ parentu */
-  overflow-x: hidden;               /* jistota proti horizontálnímu posunu */
-  -webkit-overflow-scrolling: touch;/* plynulý kinetický scroll v iOS */
-}
-
-/* 3) Bez auto-zoomu při fokusu do inputu (iOS) */
-input, textarea, select {
-  font-size: 16px;
-}
-
-/* 4) Bez „lepivého“ tap highlightu (jemné, ale neagresivní) */
+/* 8) Tap highlight a gesta */
 a, button {
   -webkit-tap-highlight-color: rgba(0,0,0,.12);
   touch-action: manipulation;
-}
-
-/* 5) Sticky header offset pro kotvy (aby nebyly překryté) — navazuje na tvoje proměnné */
-:root { --header-offset: 72px; }
-@media (min-width:1121px){ :root { --header-offset: 80px; } }
-
-html { scroll-padding-top: calc(var(--header-offset) + 8px); }
-section[id], h2[id] { scroll-margin-top: calc(var(--header-offset) + 8px); }
-
-/* 6) „Page“ wrapper: pomůže, aby se stránka nescvrkávala a nevyjela pod footer
-   (použij, pokud máš <div class="page"> okolo <header>+<main>+<footer>) */
-.page {
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-}
-footer { margin-top: auto; }
-
-/* 7) iOS safe-area (notch) – neškodné, jen přidá padding pokud je třeba */
-.site-header {
-  padding-top: max(0px, env(safe-area-inset-top));
 }
