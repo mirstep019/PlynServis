@@ -965,3 +965,31 @@ a, button {
   -webkit-tap-highlight-color: rgba(0,0,0,.12);
   touch-action: manipulation;
 }
+
+/* --- Hero height stabilizer (mobile) --- */
+.hero {
+  /* původní chování pro starší prohlížeče */
+  min-height: clamp(420px, 60vh, 640px);
+  overflow: clip; /* nic nepřeteče, nevzniká optické "roztahování" */
+}
+
+/* Preferuj "small viewport" – neexpanduje při schování adresního řádku */
+@supports (height: 100svh) {
+  .hero { min-height: 90svh; }
+}
+
+/* iOS < 16.4 fallback – naváže se na JS proměnnou --vh */
+@supports (-webkit-touch-callout: none) and (height: 100svh) {
+  .hero { min-height: calc(var(--vh, 1vh) * 90); }
+}
+
+/* Jistota pro vrstvy pozadí (žádné reflow artefakty) */
+.hero-bg,
+.hero-slide,
+.hero-scrim,
+.hero-blur {
+  height: 100%;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: opacity;
+}
