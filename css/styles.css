@@ -1052,3 +1052,89 @@ a, button {
 #scrollTopBtn.is-visible{
   bottom:18px; /* vyjede nahoru */
 }
+
+
+/* === Scroll-up tlačítko – iOS hard reset + styly === */
+#scrollTopBtn{
+  position:fixed;
+  right:18px;
+  bottom:-60px;                    /* výchozí: schované pod spodkem  */
+  z-index:999;
+
+  /* Hard reset pro iOS/Safari */
+  -webkit-appearance:none;         /* zruší nativní vzhled */
+  appearance:none;
+  background:#111;                 /* tvoje barvy */
+  color:var(--brand);
+  border:none;
+  border-radius:50px;
+  width:52px;
+  height:52px;
+  padding:0;
+  margin:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font: inherit;                   /* převezme font z body */
+  line-height:1;
+  text-decoration:none;
+
+  /* interakce */
+  cursor:pointer;
+  -webkit-tap-highlight-color: rgba(0,0,0,.12);
+  touch-action: manipulation;
+
+  /* animace vyjetí */
+  transition:
+    bottom .35s cubic-bezier(.4,0,.2,1),
+    transform .15s ease,
+    box-shadow .15s ease;
+
+  /* vzhled */
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  background-clip: padding-box;
+}
+
+#scrollTopBtn i{ 
+  pointer-events:none; 
+  font-size:20px;                  /* FA ikona */
+}
+
+/* po zobrazení (IntersectionObserver/fallback) */
+#scrollTopBtn.is-visible{ bottom:18px; }
+
+/* hover/focus (myš) */
+@media (hover:hover) and (pointer:fine){
+  #scrollTopBtn:hover{ transform: translateY(-1px); }
+}
+
+/* focus pro klávesnici / čitelnost */
+#scrollTopBtn:focus-visible{
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
+/* tap efekt na mobilech bez „zaseknutí“ */
+@media (hover:none){
+  #scrollTopBtn:active{
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0,0,0,.10);
+  }
+}
+
+/* iOS specifická pojistka — kdyby Safari futrovalo vlastní vzhled */
+@supports (-webkit-touch-callout: none){
+  #scrollTopBtn{
+    -webkit-appearance:none !important;
+    background:#111 !important;
+    color:var(--brand) !important;
+  }
+}
+
+/* ať neulítne nad spodní „notch“ – drobný polštář */
+@supports (padding: max(0px)){
+  #scrollTopBtn.is-visible{
+    bottom: max(18px, env(safe-area-inset-bottom));
+  }
+}

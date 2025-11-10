@@ -313,12 +313,9 @@
 
 
   <!-- JSON-LD: LocalBusiness + FAQ -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HVACBusiness","name":"Plynservis Liberec – Vladimír Řehák","image":"https://mirstep019.github.io/PlynServis/og-preview.jpg","url":"https://mirstep019.github.io/PlynServis/","telephone":"+420603212893","email":"rehakson@seznam.cz","address":{"@type":"PostalAddress","streetAddress":"Barvířská 128/21","addressLocality":"Liberec","postalCode":"46007","addressCountry":"CZ"},"areaServed":["Liberec","Vratislavice","Rochlice","Jablonec nad Nisou"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"}],"priceRange":"CZK","makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Servis plynových kotlů","areaServed":"Liberec"},"priceCurrency":"CZK"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Revize plynových zařízení s protokolem","areaServed":"Liberec"},"priceCurrency":"CZK"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Montáž a výměna kotlů","areaServed":"Liberec"},"priceCurrency":"CZK"}]}</script>
-
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Jak často dělat servis kotle?","acceptedAnswer":{"@type":"Answer","text":"Doporučujeme jednou ročně před topnou sezónou. U revizí postupujte podle zákonných požadavků a typu zařízení."}},{"@type":"Question","name":"Děláte revizní protokoly?","acceptedAnswer":{"@type":"Answer","text":"Ano, provádíme zákonné revize plynových zařízení a vystavujeme protokol."}}]}</script>
-
-  <!-- JS: hamburger + smooth scroll -->
-  <script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HVACBusiness","name":"Plynservis Liberec – Vladimír Řehák","image":"https://mirstep019.github.io/PlynServis/og-preview.jpg","url":"https://mirstep019.github.io/PlynServis/","telephone":"+420603212893","email":"rehakson@seznam.cz","address":{"@type":"PostalAddress","streetAddress":"Barvířská 128/21","addressLocality":"Liberec","postalCode":"46007","addressCountry":"CZ"},"areaServed":["Liberec","Vratislavice","Rochlice","Jablonec nad Nisou"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"}],"priceRange":"CZK","makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Servis plynových kotlů","areaServed":"Liberec"},"priceCurrency":"CZK"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Revize plynových zařízení s protokolem","areaServed":"Liberec"},"priceCurrency":"CZK"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Montáž a výměna kotlů","areaServed":"Liberec"},"priceCurrency":"CZK"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Jak často dělat servis kotle?","acceptedAnswer":{"@type":"Answer","text":"Doporučujeme jednou ročně před topnou sezónou. U revizí postupujte podle zákonných požadavků a typu zařízení."}},{"@type":"Question","name":"Děláte revizní protokoly?","acceptedAnswer":{"@type":"Answer","text":"Ano, provádíme zákonné revize plynových zařízení a vystavujeme protokol."}}]}</script>
+<script>
     const btn = document.querySelector('.nav-toggle');
     const nav = document.querySelector('.nav');
     if (btn) {
@@ -347,8 +344,8 @@
         }
       });
     });
-  </script>
-  <script>
+</script>
+<script>
 (function(){
   // nastavit CSS proměnnou --vh na 1% aktuální výšky okna
   const setVH = () => {
@@ -367,8 +364,7 @@
   window.addEventListener('orientationchange', schedule, { passive: true });
 })();
 </script>
-
-  <script>
+<script>
 (function(){
   const header = document.querySelector('.site-header');
 
@@ -392,9 +388,7 @@
   }
 })();
 </script>
-
-
-  <script>
+<script>
     // HERO CAROUSEL (fade)
     const slides = Array.from(document.querySelectorAll('.hero-slide'));
     const dots = Array.from(document.querySelectorAll('.hero-dots .dot'));
@@ -416,9 +410,8 @@
         });
       });
     }
-  </script>
-
-  <script>
+</script>
+<script>
     // VALIDACE FORMU + odeslání přes fetch
     (function(){
       const form  = document.getElementById('contact-form');
@@ -551,9 +544,8 @@
         }
       });
     })();
-  </script>
-
-  <script>
+</script>
+<script>
     // Lazy-load mapy
     document.addEventListener('DOMContentLoaded',()=>{
       const ph = document.getElementById('map-placeholder');
@@ -575,8 +567,8 @@
       });
       obs.observe(ph);
     });
-  </script>
-  <script>
+</script>
+<script>
   // Force scroll-to-top na klik loga (bez spoléhání na hash)
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a.brand');
