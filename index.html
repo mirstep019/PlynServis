@@ -307,6 +307,10 @@
       </div>
   </footer>
 </div> <!-- /.page -->
+<button id="scrollTopBtn" aria-label="Zpět nahoru">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
 
   <!-- JSON-LD: LocalBusiness + FAQ -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"HVACBusiness","name":"Plynservis Liberec – Vladimír Řehák","image":"https://mirstep019.github.io/PlynServis/og-preview.jpg","url":"https://mirstep019.github.io/PlynServis/","telephone":"+420603212893","email":"rehakson@seznam.cz","address":{"@type":"PostalAddress","streetAddress":"Barvířská 128/21","addressLocality":"Liberec","postalCode":"46007","addressCountry":"CZ"},"areaServed":["Liberec","Vratislavice","Rochlice","Jablonec nad Nisou"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"}],"priceRange":"CZK","makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Servis plynových kotlů","areaServed":"Liberec"},"priceCurrency":"CZK"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Revize plynových zařízení s protokolem","areaServed":"Liberec"},"priceCurrency":"CZK"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Montáž a výměna kotlů","areaServed":"Liberec"},"priceCurrency":"CZK"}]}</script>
@@ -598,7 +602,28 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
+<script>
+const scrollBtn = document.getElementById('scrollTopBtn');
+const footer = document.getElementById('mapa');
 
+const obsUp = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      scrollBtn.classList.add('is-visible');
+    }else{
+      scrollBtn.classList.remove('is-visible');
+    }
+  });
+},{
+  rootMargin: "0px 0px -40% 0px" // zobraz dřív než jsme úplně dole
+});
+
+obsUp.observe(footer);
+
+scrollBtn.addEventListener('click', ()=>{
+  window.scrollTo({ top:0, behavior:'smooth' });
+});
+</script>
 </div>
 </body>
 </html>
