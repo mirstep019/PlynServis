@@ -1141,3 +1141,63 @@ a, button {
     bottom: max(18px, env(safe-area-inset-bottom));
   }
 }
+
+
+
+/* === Footer odkazy: hover na bílou (bez „stick“ na mobilech) === */
+footer a{
+  transition: color .2s ease;
+}
+
+/* myš/trackpad */
+@media (hover:hover) and (pointer:fine){
+  footer a:hover,
+  footer a:focus-visible{
+    color:#fff;
+    outline: none;
+  }
+}
+
+/* touch: krátký vizuální feedback, bez perzistence */
+@media (hover:none){
+  footer a:active{
+    opacity:.85;
+  }
+}
+
+/* pokud chceš zahrnout i tel:/mailto: mimo footer, odkomentuj: */
+/*
+a[href^="tel:"], a[href^="mailto:"]{ transition: color .2s ease; }
+@media (hover:hover) and (pointer:fine){
+  a[href^="tel:"]:hover,
+  a[href^="tel:"]:focus-visible,
+  a[href^="mailto:"]:hover,
+  a[href^="mailto:"]:focus-visible{ color:#fff; }
+}
+@media (hover:none){
+  a[href^="tel:"]:active,
+  a[href^="mailto:"]:active{ opacity:.85; }
+}
+*/
+
+/* === Hero šipka: jemný posun dolů na hover/aktyv === */
+.hero-arrow{
+  transition: transform .2s ease, background-color .2s ease;
+  will-change: transform;
+}
+
+/* myš/trackpad */
+@media (hover:hover) and (pointer:fine){
+  .hero-arrow:hover,
+  .hero-arrow:focus-visible{
+    transform: translateY(2px);
+    outline: none;
+  }
+}
+
+/* touch: jen během stisku */
+@media (hover:none){
+  .hero-arrow:active{
+    transform: translateY(1px);
+  }
+}
