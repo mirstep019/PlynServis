@@ -517,7 +517,7 @@ textarea {
 
 .checkbox{ flex:0 0 auto; }
 
-@media(max-width:600px){
+/* @media(max-width:600px){
   .consent{ flex-wrap:wrap; }   
   .muted {margin-bottom: 20px;}
 }
@@ -526,6 +526,25 @@ textarea {
     font-size:clamp(0.75rem,2.3vw,1rem);
     line-height:1.4;
   }
+} */
+/* CONSENT – vždy jeden řádek */
+.consent{
+  display:flex;
+  flex-wrap:nowrap !important;
+  align-items:center;
+  gap:10px;
+}
+
+.consent .checkbox{
+  flex:0 0 auto;
+  width:17px;
+  height:17px;
+}
+
+#gdpr-note{
+  flex:1 1 auto;
+  white-space:wrap; /* tohle vynutí, že se to nezlomí */
+  overflow:hidden;
 }
 
 
@@ -671,7 +690,18 @@ address {
     line-height: 1.15;
   }
 }
+/* fallbacky, kdyby někde svh nebylo */
+@supports not (height: 100svh){
+  .hero{ min-height: 100dvh; }   /* moderní fallback */
+}
+@supports not (height: 100dvh){
+  .hero{ min-height: 100vh; }    /* úplně poslední fallback */
+}
 
+/* na větších displejích nemusí být přes celou výšku */
+@media (min-width: 1024px){
+  .hero{ min-height: 80vh; }
+}
 
 
 
@@ -701,6 +731,7 @@ address {
   inset: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.397), rgba(0,0,0,0.45));
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero-blur {
@@ -709,6 +740,7 @@ address {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   z-index: 1;
+  pointer-events: none;
 }
 
 
@@ -718,10 +750,12 @@ address {
   z-index: 2;
   color: #fff;
   width: 100%;
+  max-width: 1120px;
   text-align: center;
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin: 0 auto;
 }
 
 
