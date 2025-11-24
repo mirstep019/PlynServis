@@ -913,6 +913,11 @@ address {
 }
 
 
+.form-error .muted {
+  font-size: 1.2rem;
+}
+
+
 /* === DESKTOP: skutečný hover (myš/trackpad) === */
 @media (hover:hover) and (pointer:fine){
   /* nav odkazy */
