@@ -627,7 +627,7 @@ footer {
   .nav-item a{
     display:block;
     padding:12px;
-    border-radius: 12px 0 0 12px;
+    border-radius: 12px;
   }
   .nav-item a:hover{
     background: #f4c715;
