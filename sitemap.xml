@@ -2,19 +2,19 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://mirstep019.github.io/PlynServis/</loc>
+    <loc>https://plynservisliberec.cz/</loc>
     <priority>1.00</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://mirstep019.github.io/PlynServis/obchodni-podminky.html</loc>
+    <loc>https://plynservisliberec.cz/obchodni-podminky.html</loc>
     <priority>0.50</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://mirstep019.github.io/PlynServis/gdpr.html</loc>
+    <loc>https://plynservisliberec.cz/gdpr.html</loc>
     <priority>0.50</priority>
     <changefreq>monthly</changefreq>
   </url>
