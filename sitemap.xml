@@ -10,13 +10,13 @@
   <url>
     <loc>https://plynservisliberec.cz/obchodni-podminky.html</loc>
     <priority>0.50</priority>
-    <changefreq>monthly</changefreq>
+    <changefreq>yearly</changefreq>
   </url>
 
   <url>
     <loc>https://plynservisliberec.cz/gdpr.html</loc>
     <priority>0.50</priority>
-    <changefreq>monthly</changefreq>
+    <changefreq>yearly</changefreq>
   </url>
 
 </urlset>

@@ -139,12 +139,7 @@ a, button { -webkit-tap-highlight-color: rgba(0,0,0,.15); }
   outline-offset: 2px;
 }
 
-.nav-toggle .bar {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background-color: var(--brand);
-}
+
 
 /* Navigace – desktop výchozí: viditelná vpravo, jeden řádek */
 .nav {
@@ -1236,3 +1231,31 @@ a[href^="tel:"], a[href^="mailto:"]{ transition: color .2s ease; }
   }
 }
 
+/* Základ pro čárky – animovatelné */
+.nav-toggle .bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #fff;
+  transition: transform 0.25s ease, opacity 0.2s ease, background-color 0.25s ease;
+  transform-origin: center;
+}
+
+/* AKTIVNÍ STAV – hamburger -> křížek */
+.nav-toggle.is-active .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle.is-active .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-toggle.is-active .bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Volitelné: v aktivním stavu může být křížek v jiné barvě */
+.nav-toggle.is-active .bar {
+  background-color: #fff;
+}
