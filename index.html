@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Plynservis Liberec – servis a revize plynových kotlů v Liberci a okolí | Vladimír Řehák</title>
+  <title>Servis plynu a revize kotlů Liberec | Vladimír Řehák</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="format-detection" content="telephone=no">
   <meta name="description"
@@ -12,12 +12,12 @@
   <meta name="theme-color" content="#F5D601">
 
   <!-- Favicons -->
-  <link rel="icon" type="image/png" href="./img/favicons/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/svg+xml" href="./img/favicons/favicon.svg">
-  <link rel="shortcut icon" href="./img/favicons/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon.png">
-  <meta name="apple-mobile-web-app-title" content="Plynservis">
-  <link rel="manifest" href="./img/favicons/site.webmanifest">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="/img/favicons/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+<link rel="manifest" href="/img/favicons/site.webmanifest">
+
 
   <!-- Canonical (GH Pages verze – až bude doména, přepiš) -->
   <link rel="canonical" href="https://plynservisliberec.cz/">
@@ -146,13 +146,13 @@
             <div class="card-head">
               <h3>Servis plynových kotlů</h3>
             </div>
-            <p>Pravidelná údržba a čištění, diagnostika a oprava poruch</p>
+            <p>Pravidelná údržba a čištění kotlů, diagnostika a oprava poruch</p>
           </article>
           <article class="card" role="listitem">
             <div class="card-head">
               <h3>Revize a kontroly</h3>
             </div>
-            <p>Povinné revize dle zákona, vystavení protokolu</p>
+            <p>Povinné revize kotlů dle zákona, vystavení protokolu</p>
           </article>
           <article class="card" role="listitem">
             <div class="card-head">
@@ -332,57 +332,58 @@
 
 
   <!-- JSON-LD: LocalBusiness + FAQ -->
-  <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HVACBusiness",
-  "name": "Plynservis Liberec – Vladimír Řehák",
+  "@type": ["HVACBusiness", "Plumber"],
+  "name": "Vladimír Řehák – Plynservis Liberec",
   "image": "https://plynservisliberec.cz/img/og-preview.jpg",
-  "url": "https://plynservisliberec.cz/",
+  "@id": "https://plynservisliberec.cz",
+  "url": "https://plynservisliberec.cz",
   "telephone": "+420603212893",
   "email": "info@plynservisliberec.cz",
+  "identifier": {
+    "@type": "PropertyValue",
+    "name": "IČO",
+    "value": "65832800"
+  },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Barvířská 128/21",
-    "addressLocality": "Liberec",
+    "addressLocality": "Liberec III-Jeřáb",
     "postalCode": "46007",
     "addressCountry": "CZ"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.7628,
+    "longitude": 15.0536
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "08:00",
+    "closes": "16:00"
+  },
+  "priceRange": "$$",
   "areaServed": [
-    "Liberec",
-    "Vratislavice",
-    "Rochlice",
-    "Jablonec nad Nisou"
-  ],
-  "priceRange": "CZK",
-  "makesOffer": [
     {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Servis plynových kotlů",
-        "areaServed": "Liberec"
-      },
-      "priceCurrency": "CZK"
+      "@type": "City",
+      "name": "Liberec"
     },
     {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Revize plynových zařízení s protokolem",
-        "areaServed": "Liberec"
-      },
-      "priceCurrency": "CZK"
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Montáž a výměna kotlů",
-        "areaServed": "Liberec"
-      },
-      "priceCurrency": "CZK"
+      "@type": "City",
+      "name": "Jablonec nad Nisou"
     }
+  ],
+  "sameAs": [
+    "https://www.firmy.cz/detail/13663220-vladimir-rehak-plynservis-liberec-iii-jerab.html"
   ]
 }
 </script>
